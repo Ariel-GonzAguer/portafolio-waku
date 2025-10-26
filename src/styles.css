@@ -3,8 +3,7 @@
 * {
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
-  transition: all 0.5s ease-out allow-discrete;
+  /* transition: all 0.5s ease-out allow-discrete; */
 }
 
 html {
@@ -27,7 +26,7 @@ body {
 @font-face {
   font-family: "Roboto_Mono";
   src: local("Roboto_Mono"),
-    url(/assets/fonts/Roboto_Mono/Roboto_Mono.woff2) format("woff2");
+    url(/tipografias/Roboto_Mono/Roboto_Mono.woff2) format("woff2");
 }
 
 @font-face {
@@ -61,6 +60,10 @@ body {
   --font-lexend-mega: 'Lexend_Mega', sans-serif;
   --font-press-start: 'PressStart2P', cursive;
 
-  --color-gatorojo: rgb(217, 7, 7);
+  --color-gris-claro: rgb(201, 201, 201);
+  --color-gris-medio: rgb(94, 94, 94);
+  --color-gris-oscuro: rgb(77, 77, 77);
+  --color-gris-heavy: rgb(12, 12, 12);
+  --color-gatorojo: rgb(255, 0, 0);
   --color-doradoSK: rgb(255, 210, 48);
 }

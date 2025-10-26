@@ -4,12 +4,12 @@ export const Header = () => {
   return (
     <header className="w-full">
       <nav>
-        <ul className='flex justify-around items-center'>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/servicios">Servicios</Link></li>
-          <li><Link to="/proyectos">Proyectos</Link></li>
-          <li><Link to="/contacto">Contacto</Link></li>
-          <li><Link to="/about">About</Link></li>
+        <ul className='flex justify-around items-center font-lexend-mega bg-gris-medio text-gray-50'>
+          <li><Link to="/">INICIO</Link></li>
+          <li><Link to="/servicios">SERVICIOS</Link></li>
+          <li><Link to="/proyectos">PROYECTOS</Link></li>
+          <li><Link to="/contacto">CONTACTO</Link></li>
+          <li><Link to="/about">ACERCA DE</Link></li>
         </ul>
       </nav>
     </header>
