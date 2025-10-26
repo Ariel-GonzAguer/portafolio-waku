@@ -1,0 +1,15 @@
+node_modules
+dist
+.env*
+*.tsbuildinfo
+.cache
+.DS_Store
+*.pem
+
+# variables de entorno.env
+.env.*.local
+*.env
+.env*
+.env.local
+ZZ_antes_de_desplegar.md
+.vercel

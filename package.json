@@ -1,0 +1,58 @@
+{
+  "name": "waku-portafolio",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "waku dev",
+    "build": "waku build",
+    "start": "waku start"
+  },
+  "dependencies": {
+    "@emailjs/nodejs": "5.0.2",
+    "@tailwindcss/forms": "0.5.10",
+    "@vercel/analytics": "1.5.0",
+    "@vercel/node": "5.3.26",
+    "@vercel/speed-insights": "1.2.0",
+    "eslint-config-prettier": "10.1.8",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "react-server-dom-webpack": "19.1.1",
+    "sonner": "2.0.7",
+    "waku": "0.26.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.36.0",
+    "@tailwindcss/vite": "4.1.13",
+    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/react": "16.3.0",
+    "@types/form-data": "2.5.2",
+    "@types/jest": "30.0.0",
+    "@types/node": "24.6.0",
+    "@types/react": "19.1.12",
+    "@types/react-dom": "19.1.9",
+    "eslint": "9.36.0",
+    "eslint-plugin-react-hooks": "5.2.0",
+    "eslint-plugin-react-refresh": "0.4.22",
+    "globals": "16.4.0",
+    "jsdom": "27.0.0",
+    "prettier": "3.6.2",
+    "tailwindcss": "4.1.13",
+    "typescript": "5.9.2",
+    "typescript-eslint": "8.45.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "undici@>=4.5.0 <5.28.5": ">=5.28.5",
+      "esbuild@<=0.24.2": ">=0.25.0",
+      "undici@<5.29.0": ">=5.29.0"
+    },
+    "onlyBuiltDependencies": [
+      "@firebase/util",
+      "@tailwindcss/oxide",
+      "@vercel/speed-insights",
+      "esbuild",
+      "protobufjs"
+    ]
+  }
+}

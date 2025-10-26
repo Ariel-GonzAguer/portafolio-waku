@@ -1,0 +1,5 @@
+# security.txt
+# Contact Information
+Contact: ariegonzaguer@gmail.com
+
+If you find some vulnerability, please contact me 😁✌🏼
