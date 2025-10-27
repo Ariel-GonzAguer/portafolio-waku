@@ -35,7 +35,7 @@ export default async function HomePage() {
           Ver Servicios
         </Link>
       </div>
-      <p>Desarrollo <span className='text-gatorojo'>JAM Stack</span> tipado, testeado, limpio, con backend serverless.</p>
+      <p>Desarrollo <span className='text-gatorojo'>JAM Stack</span> tipado, testeado, limpio, con backend serverless</p>
     </section>
   );
 }

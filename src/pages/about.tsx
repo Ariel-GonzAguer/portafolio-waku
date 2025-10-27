@@ -1,4 +1,6 @@
 import { getConfig as staticRender } from '../utils/staticRender';
+// componentes
+import Header from '../components/header';  
 
 export default async function AboutPage() {
 
@@ -8,6 +10,7 @@ export default async function AboutPage() {
 
   return (
     <div>
+      <Header />
       <h1 className="text-4xl font-bold tracking-tight">About Us</h1>
 
     </div>

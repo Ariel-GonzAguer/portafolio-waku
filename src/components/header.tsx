@@ -1,6 +1,6 @@
 import { Link } from 'waku';
 
-export const Header = () => {
+export default function Header() {
   return (
     <header className="w-full">
       <nav>
