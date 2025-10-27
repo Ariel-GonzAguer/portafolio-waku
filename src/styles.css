@@ -23,33 +23,38 @@ body {
 
 /* tipografías */
 @font-face {
-  font-family: "Roboto_Mono";
-  src: local("Roboto_Mono"),
-    url(/tipografias/Roboto_Mono/Roboto_Mono.woff2) format("woff2");
+  font-family: 'Roboto_Mono';
+  src:
+    local('Roboto_Mono'),
+    url(/tipografias/Roboto_Mono/Roboto_Mono.woff2) format('woff2');
 }
 
 @font-face {
-  font-family: "Open_Sans";
-  src: local("OpenSans-Regular"),
-    url(/tipografias/Open_Sans/OpenSans-Regular.woff2) format("woff2");
+  font-family: 'Open_Sans';
+  src:
+    local('OpenSans-Regular'),
+    url(/tipografias/Open_Sans/OpenSans-Regular.woff2) format('woff2');
 }
 
 @font-face {
-  font-family: "Kanit_Regular";
-  src: local("Kanit_Regular"),
-    url(/tipografias/Kanit/Kanit_Regular.woff2) format("woff2");
+  font-family: 'Kanit_Regular';
+  src:
+    local('Kanit_Regular'),
+    url(/tipografias/Kanit/Kanit_Regular.woff2) format('woff2');
 }
 
 @font-face {
-  font-family: "Lexend_Mega";
-  src: local("Lexend_Mega"),
-    url(/tipografias/Lexend_Mega/Lexend_Mega.woff2) format("woff2");
+  font-family: 'Lexend_Mega';
+  src:
+    local('Lexend_Mega'),
+    url(/tipografias/Lexend_Mega/Lexend_Mega.woff2) format('woff2');
 }
 
 @font-face {
-  font-family: "PressStart2P";
-  src: local("PressStart2P_Regular"),
-    url(/tipografias/PressStart2P/PressStart2P_Regular.woff2) format("woff2");
+  font-family: 'PressStart2P';
+  src:
+    local('PressStart2P_Regular'),
+    url(/tipografias/PressStart2P/PressStart2P_Regular.woff2) format('woff2');
 }
 
 @theme {
@@ -65,4 +70,41 @@ body {
   --color-gris-heavy: rgb(12, 12, 12);
   --color-gatorojo: rgb(255, 0, 0);
   --color-doradoSK: rgb(255, 210, 48);
+}
+
+/* View Transitions API - Fade transition con duración de 600ms */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 600ms;
+  animation-timing-function: ease-in-out;
+}
+
+::view-transition-old(root) {
+  animation-name: fade-out;
+}
+
+::view-transition-new(root) {
+  animation-name: fade-in;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
