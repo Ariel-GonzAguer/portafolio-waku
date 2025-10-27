@@ -94,11 +94,9 @@ body {
 @keyframes fade-out {
   from {
     opacity: 1;
-    background: rgb(255, 7, 7);
   }
   to {
     opacity: 0.5;
-    background: black;
   }
 }
 
