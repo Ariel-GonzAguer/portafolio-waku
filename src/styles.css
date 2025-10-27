@@ -96,13 +96,13 @@ body {
     opacity: 1;
   }
   to {
-    opacity: 0;
+    opacity: 0.5;
   }
 }
 
 @keyframes fade-in {
   from {
-    opacity: 0;
+    opacity: 0.5;
   }
   to {
     opacity: 1;
