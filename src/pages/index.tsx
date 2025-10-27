@@ -36,7 +36,7 @@ export default async function HomePage() {
           Ver Servicios
         </TransitionLink>
       </div>
-      <p>
+      <p className='text-center'>
         Desarrollo <span className="text-gatorojo">JAM Stack</span> tipado, testeado, limpio, con
         backend serverless
       </p>
