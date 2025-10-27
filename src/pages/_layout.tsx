@@ -12,11 +12,11 @@ type HomeLayoutProps = { children: ReactNode };
 
 export default async function HomeLayout({ children }: HomeLayoutProps) {
   return (
-    <>
+    <section className="flex flex-col min-h-screen">
       <Analytics />
-      <main className=" bg-gris-heavy text-indigo-50">{children}</main>
+      <main className="flex-1 bg-gris-heavy text-indigo-50">{children}</main>
       <Footer />
-    </>
+    </section>
   );
 }
 

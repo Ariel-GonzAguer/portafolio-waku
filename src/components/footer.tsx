@@ -1,15 +1,15 @@
 export const Footer = () => {
   return (
-    <footer className="w-full flex items-center justify-center gap-4 px-4 py-0 border-t mt-4 border-blue-400">
-      <form action="" className="flex gap-2 items-center">
+    <footer className="w-full flex items-center justify-center gap-4 px-4 border-t border-blue-400">
+      <form action="" className="flex justify-center gap-2 items-center">
         <p>Agregar código:</p>
-        <label htmlFor="code" className="mt-2">
+        <label htmlFor="code">
           <input
             id="code"
             type="text"
             name="code"
             placeholder="Ingresa tu código aquí"
-            className="border border-gray-300 rounded-md mr-2"
+            className="border border-gray-300 rounded-md"
           />
         </label>
 
@@ -19,7 +19,6 @@ export const Footer = () => {
         >
           OK
         </button>
-
       </form>
     </footer>
   );
