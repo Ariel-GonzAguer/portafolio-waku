@@ -23,33 +23,38 @@ body {
 
 /* tipografías */
 @font-face {
-  font-family: "Roboto_Mono";
-  src: local("Roboto_Mono"),
-    url(/tipografias/Roboto_Mono/Roboto_Mono.woff2) format("woff2");
+  font-family: 'Roboto_Mono';
+  src:
+    local('Roboto_Mono'),
+    url(/tipografias/Roboto_Mono/Roboto_Mono.woff2) format('woff2');
 }
 
 @font-face {
-  font-family: "Open_Sans";
-  src: local("OpenSans-Regular"),
-    url(/tipografias/Open_Sans/OpenSans-Regular.woff2) format("woff2");
+  font-family: 'Open_Sans';
+  src:
+    local('OpenSans-Regular'),
+    url(/tipografias/Open_Sans/OpenSans-Regular.woff2) format('woff2');
 }
 
 @font-face {
-  font-family: "Kanit_Regular";
-  src: local("Kanit_Regular"),
-    url(/tipografias/Kanit/Kanit_Regular.woff2) format("woff2");
+  font-family: 'Kanit_Regular';
+  src:
+    local('Kanit_Regular'),
+    url(/tipografias/Kanit/Kanit_Regular.woff2) format('woff2');
 }
 
 @font-face {
-  font-family: "Lexend_Mega";
-  src: local("Lexend_Mega"),
-    url(/tipografias/Lexend_Mega/Lexend_Mega.woff2) format("woff2");
+  font-family: 'Lexend_Mega';
+  src:
+    local('Lexend_Mega'),
+    url(/tipografias/Lexend_Mega/Lexend_Mega.woff2) format('woff2');
 }
 
 @font-face {
-  font-family: "PressStart2P";
-  src: local("PressStart2P_Regular"),
-    url(/tipografias/PressStart2P/PressStart2P_Regular.woff2) format("woff2");
+  font-family: 'PressStart2P';
+  src:
+    local('PressStart2P_Regular'),
+    url(/tipografias/PressStart2P/PressStart2P_Regular.woff2) format('woff2');
 }
 
 @theme {

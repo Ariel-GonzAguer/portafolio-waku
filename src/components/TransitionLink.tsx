@@ -31,10 +31,5 @@ export function TransitionLink(props: LinkProps) {
     }
   };
 
-  return (
-    <Link
-      {...props}
-      unstable_startTransition={handleStartTransition}
-    />
-  );
+  return <Link {...props} unstable_startTransition={handleStartTransition} />;
 }
