@@ -3,7 +3,7 @@ import { getConfig as staticRender } from '../utils/staticRender';
 // imagenes
 import gatoRojo from '/iconos/gatoRojoLab-mini.png';
 // enrutado
-import { Link } from 'waku';
+import { TransitionLink } from '../components/TransitionLink';
 
 export default async function HomePage() {
   return (
@@ -25,15 +25,15 @@ export default async function HomePage() {
          Accesibilidad, minimalismo y creatividad
       </p>
       <div className='flex justify-around items-center gap-6 mt-10 mb-6'>
-        <Link to='/proyectos' className='mt-6 bg-doradoSK text-black rounded-md px-4 py-2 hover:bg-gris-claro inline-block'>
+        <TransitionLink to='/proyectos' className='mt-6 bg-doradoSK text-black rounded-md px-4 py-2 hover:bg-gris-claro inline-block'>
           Ver Proyectos
-        </Link>
-        <Link to='/contacto' className='mt-6 bg-doradoSK text-black rounded-md px-4 py-2 hover:bg-gris-claro inline-block'>
+        </TransitionLink>
+        <TransitionLink to='/contacto' className='mt-6 bg-doradoSK text-black rounded-md px-4 py-2 hover:bg-gris-claro inline-block'>
           Contactar
-        </Link>
-        <Link to='/servicios' className='mt-6 bg-doradoSK text-black rounded-md px-4 py-2 hover:bg-gris-claro inline-block'>
+        </TransitionLink>
+        <TransitionLink to='/servicios' className='mt-6 bg-doradoSK text-black rounded-md px-4 py-2 hover:bg-gris-claro inline-block'>
           Ver Servicios
-        </Link>
+        </TransitionLink>
       </div>
       <p>Desarrollo <span className='text-gatorojo'>JAM Stack</span> tipado, testeado, limpio, con backend serverless</p>
     </section>
