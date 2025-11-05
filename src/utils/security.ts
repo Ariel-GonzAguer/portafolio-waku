@@ -1,5 +1,5 @@
 /**
- * Utilidades de seguridad para SuperKeg
+ * Utilidades de seguridad
  *
  * Este módulo contiene funciones reutilizables para implementar
  * medidas de seguridad en toda la aplicación.

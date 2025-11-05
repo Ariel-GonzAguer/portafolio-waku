@@ -1,18 +1,16 @@
 ## Project overview
 
 - Siempre responda en español
-- Este es un proyecto desarrollado con React, TypeScript, Tailwind CSS, Zustand y Vite.
-- Se trata de una aplicación web para un negocio de lash art (estética de pestañas).
-- Puede referirse al [discovery brief](../negocio/discoveryBrief.md) y [requisitos](../negocio/requisitos.md) para obtener más contexto sobre los objetivos y requisitos del proyecto.
+- Este es un proyecto desarrollado con React, TypeScript, Tailwind CSS, Zustand y Waku como meta-framework.
+- Se trata de una portafolio de un desarrollador web y UX Designer enfocado en investigación.
 
 ## Build and test commands
 
-- Este proyecto usa pnpm como gestor de paquetes. Evite usar npm.
+- Este proyecto usa pnpm como gestor de paquetes. NO usar npm.
 - Use pnpm add <package_name> para instalar nuevas dependencias.
 - Use pnpm install para instalar las dependencias del proyecto.
 - Use pnpm dev para iniciar el servidor de desarrollo.
 - Use pnpm build para construir el proyecto para producción.
-- Use pnpm preview para previsualizar la versión de producción localmente.
 
 ## Code style guidelines
 

@@ -2,8 +2,6 @@
 
 * {
   box-sizing: border-box;
-  /* margin: 0; */
-  /* transition: all 0.5s ease-out allow-discrete; */
 }
 
 html {
@@ -13,12 +11,6 @@ html {
 
 body {
   scroll-behavior: smooth;
-  line-height: 1.5;
-  /* text-align: center; */
-  /* height: 100%; */
-  height: 100vh;
-  /* display: flex; */
-  /* flex-direction: column; */
 }
 
 /* tipografías */

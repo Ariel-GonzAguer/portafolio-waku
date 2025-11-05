@@ -1,6 +1,6 @@
 // util para config para SSR
 // imagenes
-import gatoRojo from '/iconos/gatoRojoLab-mini.png';
+import gatoRojo from '/imagenes/soloGato.png';
 // enrutado
 import { TransitionLink } from '../components/TransitionLink';
 
@@ -13,29 +13,29 @@ export default async function HomePage() {
         <span className="text-gris-claro">A</span>B
       </h1>
       <img src={gatoRojo} alt="Gato Rojo Lab" width={300} height={300} className="mt-6" />
-      <p className="text-3xl pb-4 pt-2">Soluciones centradas en la Persona Usuaria</p>
+      <p className="text-3xl mb-8 mt-4">Soluciones centradas en la Persona Usuaria</p>
       <p className="text-lg">Accesibilidad, minimalismo y creatividad</p>
-      <div className="flex justify-around items-center gap-6 mt-10 mb-6">
+      <div className="flex justify-around items-center gap-6 mt-10 mb-20">
         <TransitionLink
           to="/proyectos"
-          className="mt-6 bg-doradoSK text-black rounded-md px-4 py-2 hover:bg-gris-claro inline-block"
+          className="mt-6 bg-doradoSK text-black rounded-md px-4 py-2 hover:bg-gris-claro inline-block focus:ring-6 focus:ring-doradoSK"
         >
           Ver Proyectos
         </TransitionLink>
         <TransitionLink
           to="/contacto"
-          className="mt-6 bg-doradoSK text-black rounded-md px-4 py-2 hover:bg-gris-claro inline-block"
+          className="mt-6 bg-doradoSK text-black rounded-md px-4 py-2 hover:bg-gris-claro inline-block focus:ring-6 focus:ring-doradoSK"
         >
           Contactar
         </TransitionLink>
         <TransitionLink
           to="/servicios"
-          className="mt-6 bg-doradoSK text-black rounded-md px-4 py-2 hover:bg-gris-claro inline-block"
+          className="mt-6 bg-doradoSK text-black rounded-md px-4 py-2 hover:bg-gris-claro inline-block focus:ring-6 focus:ring-doradoSK"
         >
           Ver Servicios
         </TransitionLink>
       </div>
-      <p className="text-center">
+      <p className="text-center text-xl">
         Desarrollo <span className="text-gatorojo">JAM Stack</span> tipado, testeado, limpio, con
         backend serverless
       </p>

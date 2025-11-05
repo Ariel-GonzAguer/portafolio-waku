@@ -4,6 +4,8 @@ import '../styles.css';
 import type { ReactNode } from 'react';
 // componentes
 import { Footer } from '../components/footer';
+import Header from '../components/header';
+
 // analytics
 import { Analytics } from '@vercel/analytics/react';
 
@@ -13,6 +15,7 @@ type HomeLayoutProps = { children: ReactNode };
 export default async function HomeLayout({ children }: HomeLayoutProps) {
   return (
     <section className="flex flex-col min-h-screen">
+      <Header />
       <Analytics />
       <main className="flex-1 bg-gris-heavy text-indigo-50">{children}</main>
       <Footer />
