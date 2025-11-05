@@ -1,5 +1,4 @@
 // util para config para SSR
-import { getConfig as staticRender } from '../utils/staticRender';
 // imagenes
 import gatoRojo from '/iconos/gatoRojoLab-mini.png';
 // enrutado
@@ -36,7 +35,7 @@ export default async function HomePage() {
           Ver Servicios
         </TransitionLink>
       </div>
-      <p className='text-center'>
+      <p className="text-center">
         Desarrollo <span className="text-gatorojo">JAM Stack</span> tipado, testeado, limpio, con
         backend serverless
       </p>
@@ -44,9 +43,9 @@ export default async function HomePage() {
   );
 }
 
-export const getConfig = staticRender({
-  title: 'Home Page',
-  description: 'Welcome to our homepage',
-  keywords: 'home, welcome',
-  imageUrl: '/home.jpg',
-});
+// eslint-disable-next-line react-refresh/only-export-components
+export const getConfig = () => {
+  return {
+    render: 'static',
+  } as const;
+};

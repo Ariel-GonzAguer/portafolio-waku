@@ -7,7 +7,7 @@ import {
   sanitizeForLogging,
   isValidEmail,
   sanitizeHtml,
-  sanitizeEmail
+  sanitizeEmail,
 } from '../src/utils/security';
 
 // emailJS
@@ -15,20 +15,20 @@ import emailjs from '@emailjs/nodejs';
 
 /**
  * Maneja las solicitudes de envío de correo electrónico para pedidos de la tienda.
- * 
+ *
  * Esta función procesa las solicitudes POST para enviar correos de confirmación
  * de pedidos a los clientes utilizando EmailJS. Aplica medidas de seguridad,
  * sanitiza los datos de entrada y valida la información antes del envío.
- * 
+ *
  * @param req - El objeto de solicitud de Vercel que contiene los datos del pedido
  * @param res - El objeto de respuesta de Vercel para enviar la respuesta al cliente
- * 
+ *
  * @returns Promise<void> - Retorna una respuesta JSON con el resultado de la operación
- * 
+ *
  * @throws {400} Cuando el email es inválido o faltan datos requeridos
  * @throws {405} Cuando se usa un método HTTP diferente a POST
  * @throws {500} Cuando ocurre un error interno al enviar el correo
- * 
+ *
  * @example
  * // Uso desde el frontend (como en Carrito.tsx):
  * ```typescript
@@ -43,7 +43,7 @@ import emailjs from '@emailjs/nodejs';
  *     user_mensaje: 'Quiero agendar una cita.',
  *   }),
  * });
- * 
+ *
  * const data = await response.json();
  * if (response.ok) {
  *   console.log('Correo enviado:', data.message);
@@ -51,14 +51,14 @@ import emailjs from '@emailjs/nodejs';
  *   console.error('Error:', data.error);
  * }
  * ```
- * 
+ *
  * @security
  * - Aplica cabeceras de seguridad HTTP
  * - Sanitiza todas las entradas del usuario
  * - Valida formato de email
  * - Registra IP del cliente para auditoría
  * - Solo acepta métodos POST
- * 
+ *
  * @dependencies
  * - EmailJS para el envío de correos
  * - Variables de entorno: EMAILJS_PUBLIC_KEY, EMAILJS_PRIVATE_KEY, EMAILJS_SERVICE_ID

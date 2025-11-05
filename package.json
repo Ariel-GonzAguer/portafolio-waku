@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "waku dev",
     "build": "waku build",
-    "start": "waku start"
+    "start": "waku start",
+    "lint": "eslint . --ext .ts,.tsx --fix",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@emailjs/nodejs": "5.0.2",

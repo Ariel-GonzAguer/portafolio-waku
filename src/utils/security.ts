@@ -68,18 +68,18 @@ export function sanitizeEmail(email: string | unknown): string {
  */
 export function normalizeEmail(email: string | unknown): string {
   const sanitized = sanitizeEmail(email);
-  
+
   if (!isValidEmail(sanitized)) {
     return '';
   }
 
   // Separar usuario y dominio
   const [user, domain] = sanitized.split('@');
-  
+
   if (!user || !domain) {
     return '';
   }
-  
+
   // Para Gmail, remover puntos y etiquetas (+)
   let normalizedUser = user;
   if (domain === 'gmail.com' || domain === 'googlemail.com') {
@@ -110,17 +110,17 @@ export function validateAndSanitizeEmail(email: string | unknown): {
     return {
       isValid: false,
       email: '',
-      error: 'El email debe ser una cadena de texto'
+      error: 'El email debe ser una cadena de texto',
     };
   }
 
   const sanitized = sanitizeEmail(email);
-  
+
   if (!sanitized) {
     return {
       isValid: false,
       email: '',
-      error: 'Email vacío después de sanitizar'
+      error: 'Email vacío después de sanitizar',
     };
   }
 
@@ -128,13 +128,13 @@ export function validateAndSanitizeEmail(email: string | unknown): {
     return {
       isValid: false,
       email: sanitized,
-      error: 'Formato de email inválido'
+      error: 'Formato de email inválido',
     };
   }
 
   return {
     isValid: true,
-    email: sanitized
+    email: sanitized,
   };
 }
 
@@ -154,11 +154,11 @@ export function maskEmail(email: string | unknown): string {
   }
 
   const [user, domain] = email.split('@');
-  
+
   if (!user || !domain) {
     return '***';
   }
-  
+
   if (user.length <= 2) {
     return `**@${domain}`;
   }
