@@ -10,7 +10,7 @@ export default function Proyectos() {
   return (
     <section className="mb-20">
       <AOSProvider />
-      <h2 className="text-center text-xl">Algunos de los proyectos realizados este año</h2>
+      <h2 className="text-center text-3xl" data-aos="zoom-in">Algunos de los proyectos realizados este año</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-8">
         {proyectos.map((proyecto) => (
           <article

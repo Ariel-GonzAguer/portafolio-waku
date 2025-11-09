@@ -1,10 +1,12 @@
 // componentes
 import Proyectos from "../components/Proyectos";
 import Servicios from "../components/Servicios";
+import MarqueeTecnologias from "../components/MarqueeReact/MarqueeTecnologias";
+import Contacto from "../components/Contacto";
 
 export default async function HomePage() {
   return (
-    <section className="flex flex-col items-center justify-center pt-10">
+    <section title='main' className="flex flex-col items-center justify-center pt-10">
       <section title="Hero Section" className="flex flex-col items-center">
 
         <h1 className="text-8xl font-bold font-lexend-mega pt-6">
@@ -22,12 +24,19 @@ export default async function HomePage() {
           backend serverless
         </p>
       </section>
-      <section id="proyectos" className="w-full max-w-6xl mt-20 px-4">
+      <section title="proyectos" className="w-full max-w-6xl mt-22 px-4">
         <Proyectos />
       </section>
-      <section id="servicios" className="w-full max-w-6xl mt-20 px-4"></section>
+      <section title="servicios" className="w-full max-w-6xl mt-20 px-4"></section>
       <Servicios />
-    </section>
+      <section title="Marquee de tecnologías" className="w-full max-w-6xl mt-20 px-4 mb-20">
+        <MarqueeTecnologias />
+      </section>
+
+      <section title="Contacto" className="w-full max-w-6xl mt-20 px-4 mb-20"></section>
+        <Contacto />
+      </section>
+
   );
 }
 

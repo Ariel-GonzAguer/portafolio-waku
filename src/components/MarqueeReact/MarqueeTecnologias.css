@@ -1,0 +1,100 @@
+/* MarqueeTecnologias.css */
+.marquee-section {
+  margin: 0 auto;
+  padding: 1rem 0;
+  backdrop-filter: blur(5px);
+  width: 70%;
+  max-width: 600px;
+}
+
+.marquee-section h3 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.marquee-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+.marquee {
+  display: flex;
+  gap: 2rem;
+  animation: scroll 45s linear infinite;
+  will-change: transform;
+  width: max-content;
+  padding: 0 1rem;
+}
+
+.tech-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  transition: transform 0.3s ease;
+  min-width: 80px;
+}
+
+.tech-item:hover {
+  transform: scale(1.1);
+}
+
+.tech-item span {
+  font-size: 0.9rem;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 1rem));
+  }
+}
+
+.marquee-container:hover .marquee {
+  animation-play-state: paused;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .marquee-section {
+    width: 90%;
+  }
+
+  .marquee {
+    gap: 1.5rem;
+  }
+
+  .tech-item {
+    min-width: 70px;
+  }
+
+  .tech-item img {
+    width: 35px !important;
+    height: 35px !important;
+  }
+
+  .tech-item span {
+    font-size: 0.8rem;
+  }
+}

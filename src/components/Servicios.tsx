@@ -16,11 +16,11 @@ export default function Servicios() {
             data-aos={`zoom-in-${Number(servicio.id) % 2 === 0 ? 'right' : 'left'}`}
             data-aos-delay={Number(servicio.id) * 200}
             key={servicio.id}
-            className="p-4"
+            className={`p-4 ${Number(servicio.id) % 2 === 0 ?  'text-left' : 'text-right'}`}
             >
             <h3 className="text-2xl font-bold mb-2">{servicio.nombre}</h3>
             <p className="text-gris-claro mb-4">{servicio.descripcion}</p>
-            <ul className="flex flex-wrap gap-2">
+            <ul className={`flex flex-wrap gap-2 justify-center items-center`}>
               {servicio.tags.map((tag, index) => (
                 <li key={index} className="bg-doradoSK text-black px-2 py-1 rounded">{tag}</li>
               ))}
