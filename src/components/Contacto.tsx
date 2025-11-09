@@ -58,7 +58,7 @@ export default function Contacto() {
       <input type="email" id="user_email" name="user_email" required className="mb-4 p-2 border border-gray-300 rounded focus:ring-6 focus:ring-doradoSK" />
       <label htmlFor="servicio" className="mb-2 font-semibold">Servicio:</label>
       <select id="servicio" name="servicio" required className="mb-4 p-2 border border-gray-300 rounded focus:ring-6 focus:ring-doradoSK">
-        <option value="" disabled className="bg-gris-heavy text-white">Seleccione un servicio</option>
+        <option value="" disabled defaultChecked className="bg-gris-heavy text-white">Seleccione un servicio</option>
         {servicios.map((servicio) => (
           <option key={servicio.id} value={servicio.id} className="bg-gris-heavy text-white">
             {servicio.nombre}

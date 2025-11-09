@@ -4,8 +4,11 @@
 import { AOSProvider } from "./AOSProvider"
 // data
 import { proyectos } from '../data/proyectos';
+// hooks
+import useIsMobile from "../hooks/useIsMobile";
 
 export default function Proyectos() {
+  const isMobile = useIsMobile();
 
   return (
     <section className="mb-20">
@@ -15,7 +18,7 @@ export default function Proyectos() {
         {proyectos.map((proyecto) => (
           <article
             data-aos={`fade-${Number(proyecto.id) % 2 === 0 ? 'right' : 'left'}`}
-            data-aos-delay={Number(proyecto.id) * 200}
+            data-aos-delay={`${ isMobile ? 0 : Number(proyecto.id) * 200}`}
             key={proyecto.id}
             className="p-4"
             >

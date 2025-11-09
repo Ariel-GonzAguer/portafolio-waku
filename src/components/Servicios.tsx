@@ -4,8 +4,12 @@
 import { servicios } from '../data/servicios';
 // componentes
 import { AOSProvider } from "./AOSProvider"
+// hooks
+import useIsMobile from "../hooks/useIsMobile";
+
 export default function Servicios() {
- 
+  const isMobile = useIsMobile();
+
   return (
     <section>
       <AOSProvider />
@@ -14,7 +18,7 @@ export default function Servicios() {
         {servicios.map((servicio) => (
           <article
             data-aos={`zoom-in-${Number(servicio.id) % 2 === 0 ? 'right' : 'left'}`}
-            data-aos-delay={Number(servicio.id) * 200}
+            data-aos-delay={`${isMobile ? 0 : Number(servicio.id) * 200}`}
             key={servicio.id}
             className={`p-4 ${Number(servicio.id) % 2 === 0 ?  'text-left' : 'text-right'}`}
             >
