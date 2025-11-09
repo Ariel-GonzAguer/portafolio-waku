@@ -14,6 +14,7 @@
     "@vercel/analytics": "1.5.0",
     "@vercel/node": "5.3.26",
     "@vercel/speed-insights": "1.2.0",
+    "aos": "2.3.4",
     "eslint-config-prettier": "10.1.8",
     "react": "19.1.1",
     "react-dom": "19.1.1",
@@ -26,7 +27,7 @@
     "@tailwindcss/vite": "4.1.13",
     "@testing-library/jest-dom": "6.9.1",
     "@testing-library/react": "16.3.0",
-    "@types/form-data": "2.5.2",
+    "@types/aos": "3.0.7",
     "@types/jest": "30.0.0",
     "@types/node": "24.6.0",
     "@types/react": "19.1.12",
@@ -48,7 +49,6 @@
       "undici@<5.29.0": ">=5.29.0"
     },
     "onlyBuiltDependencies": [
-      "@firebase/util",
       "@tailwindcss/oxide",
       "@vercel/speed-insights",
       "esbuild",

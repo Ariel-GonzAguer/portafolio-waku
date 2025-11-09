@@ -5,14 +5,14 @@
 'use client';
 
 import { Link } from 'waku';
-import type { LinkProps } from 'waku';
+import type { ComponentProps } from 'react';
 import { startTransition, type TransitionFunction } from 'react';
 
 /**
  * Wrapper del Link de Waku que integra View Transitions API
  * para transiciones suaves entre páginas con efecto fade de 600ms
  */
-export function TransitionLink(props: LinkProps) {
+export function TransitionLink(props: ComponentProps<typeof Link>) {
   // Función que envuelve la transición con View Transitions API
   const handleStartTransition = (callback: TransitionFunction) => {
     // Verificar si el navegador soporta View Transitions
