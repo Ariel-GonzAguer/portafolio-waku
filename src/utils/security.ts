@@ -179,12 +179,29 @@ export function isValidLength(text: string, maxLength: number): boolean {
 
 /**
  * Normaliza dirección IP para rate limiting
- * @param req - Request object de Vercel
+ * @param req - Request object (estándar Web API o Vercel)
  * @returns IP normalizada
  */
 export function getClientIp(req: {
-  headers: { [key: string]: string | string[] | undefined };
+  headers: { [key: string]: string | string[] | undefined } | Headers;
 }): string {
+  // Si es un objeto Headers estándar (Web API)
+  if (req.headers instanceof Headers) {
+    const forwarded = req.headers.get('x-forwarded-for');
+    const realIp = req.headers.get('x-real-ip');
+
+    if (forwarded) {
+      return forwarded.split(',')[0]?.trim() || 'unknown';
+    }
+
+    if (realIp) {
+      return realIp;
+    }
+
+    return 'unknown';
+  }
+
+  // Si es un objeto plano (Vercel)
   const forwarded = req.headers['x-forwarded-for'];
   const realIp = req.headers['x-real-ip'];
 
@@ -244,10 +261,8 @@ export const SECURITY_HEADERS = {
  * Aplica headers de seguridad a una respuesta
  * @param res - Response object
  */
-export function applySecurityHeaders(res: {
-  setHeader: (key: string, value: string) => void;
-}): void {
-  Object.entries(SECURITY_HEADERS).forEach(([key, value]) => {
-    res.setHeader(key, value);
-  });
+export function applySecurityHeaders(headers: Headers): void {
+Object.entries(SECURITY_HEADERS).forEach(([key, value]) => {
+headers.set(key, value);
+});
 }

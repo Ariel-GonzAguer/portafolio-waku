@@ -1,5 +1,4 @@
-// vercel
-import { VercelRequest, VercelResponse } from '@vercel/node';
+// Waku API Route - Usa Web Standards (Request/Response)
 // Utilidades de seguridad
 import {
   getClientIp,
@@ -8,29 +7,28 @@ import {
   isValidEmail,
   sanitizeHtml,
   sanitizeEmail,
-} from '../src/utils/security';
+} from '../../utils/security';
 
 // emailJS
 import emailjs from '@emailjs/nodejs';
 
 /**
- * Maneja las solicitudes de envío de correo electrónico para pedidos de la tienda.
+ * Maneja las solicitudes de envío de correo electrónico para el formulario de contacto.
  *
- * Esta función procesa las solicitudes POST para enviar correos de confirmación
- * de pedidos a los clientes utilizando EmailJS. Aplica medidas de seguridad,
- * sanitiza los datos de entrada y valida la información antes del envío.
+ * Esta función procesa las solicitudes POST para enviar correos de contacto
+ * a través de EmailJS. Aplica medidas de seguridad, sanitiza los datos de entrada
+ * y valida la información antes del envío.
  *
- * @param req - El objeto de solicitud de Vercel que contiene los datos del pedido
- * @param res - El objeto de respuesta de Vercel para enviar la respuesta al cliente
+ * @param request - El objeto Request estándar que contiene los datos del formulario
  *
- * @returns Promise<void> - Retorna una respuesta JSON con el resultado de la operación
+ * @returns Promise<Response> - Retorna una respuesta JSON con el resultado de la operación
  *
  * @throws {400} Cuando el email es inválido o faltan datos requeridos
  * @throws {405} Cuando se usa un método HTTP diferente a POST
  * @throws {500} Cuando ocurre un error interno al enviar el correo
  *
  * @example
- * // Uso desde el frontend (como en Carrito.tsx):
+ * // Uso desde el frontend (como en Contacto.tsx):
  * ```typescript
  * const response = await fetch('/api/enviarCorreo', {
  *   method: 'POST',
@@ -41,6 +39,7 @@ import emailjs from '@emailjs/nodejs';
  *     user_email: 'cliente@ejemplo.com',
  *     user_nombre: 'Juan Pérez',
  *     user_mensaje: 'Quiero agendar una cita.',
+ *     servicio: 'desarrollo_web',
  *   }),
  * });
  *
@@ -64,50 +63,44 @@ import emailjs from '@emailjs/nodejs';
  * - Variables de entorno: EMAILJS_PUBLIC_KEY, EMAILJS_PRIVATE_KEY, EMAILJS_SERVICE_ID
  * - Funciones de validación y sanitización personalizadas
  */
-export default async function handler(req: VercelRequest, res: VercelResponse) {
-  // Aplicar cabeceras de seguridad
-  applySecurityHeaders(res);
-  // Solo aceptar POST
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Método no permitido' });
-  }
-
-  // Obtener y sanitizar IP del cliente
-  const clientIp = getClientIp(req);
-  const sanitizedIp = sanitizeForLogging(clientIp || 'IP desconocida');
-
-  // sanitizar body
-  const sanitizedUser_email = sanitizeEmail(req.body.user_email);
-  const sanitizedUser_nombre = sanitizeHtml(req.body.user_nombre);
-  const sanitizedUser_mensaje = sanitizeHtml(req.body.user_mensaje);
-
-  console.log(`Solicitud recibida de IP: ${sanitizedIp}`);
-
-  /* *** 
-
-  LOGS PARA REVISAR DATOS QUE LLEGARÁN A EMAILJS → BORRRAR AL FINAL
-  console.log('Vercel → Datos que llegan a EmailJS:', {
-    user_email: sanitizedUser_email,
-    user_nombre: sanitizedUser_nombre,
-    user_mensaje: sanitizedUser_mensaje
-  });
-
-   *** */
-
-  // Validar email
-  if (!isValidEmail(req.body.user_email)) {
-    return res.status(400).json({ error: 'Email inválido' });
-  }
-
+export const POST = async (request: Request): Promise<Response> => {
   try {
+    // Obtener y sanitizar IP del cliente
+    const clientIp = getClientIp({ headers: request.headers });
+    const sanitizedIp = sanitizeForLogging(clientIp);
+
+    console.log(`Solicitud recibida de IP: ${sanitizedIp}`);
+
+    // Obtener el body del request
+    const body = await request.json();
+
+    // Sanitizar body
+    const sanitizedUser_email = sanitizeEmail(body.user_email);
+    const sanitizedUser_nombre = sanitizeHtml(body.user_nombre);
+    const sanitizedUser_mensaje = sanitizeHtml(body.user_mensaje);
+
+    // Validar email
+    if (!isValidEmail(body.user_email)) {
+      const headers = new Headers();
+      applySecurityHeaders(headers);
+      return Response.json({ error: 'Email inválido' }, { status: 400, headers });
+    }
+
     // Validar campos mínimos
     if (!sanitizedUser_email || !sanitizedUser_nombre || !sanitizedUser_mensaje) {
-      return res.status(400).json({ error: 'Datos insuficientes' });
+      const headers = new Headers();
+      applySecurityHeaders(headers);
+      return Response.json({ error: 'Datos insuficientes' }, { status: 400, headers });
     }
 
     // Validar que las variables de entorno de EmailJS estén definidas
     if (!process.env.EMAILJS_PUBLIC_KEY || !process.env.EMAILJS_PRIVATE_KEY) {
-      return res.status(500).json({ error: 'Configuración de EmailJS incompleta' });
+      const headers = new Headers();
+      applySecurityHeaders(headers);
+      return Response.json(
+        { error: 'Configuración de EmailJS incompleta' },
+        { status: 500, headers },
+      );
     }
 
     // Inicializar EmailJS con las credenciales
@@ -122,10 +115,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       user_mensaje: sanitizedUser_mensaje,
     });
 
-    return res.status(200).json({
-      message: 'Correo enviado correctamente',
-      response,
-    });
+    const headers = new Headers();
+    applySecurityHeaders(headers);
+    return Response.json(
+      {
+        message: 'Correo enviado correctamente',
+        response,
+      },
+      { status: 200, headers },
+    );
   } catch (error: unknown) {
     console.error('Error al enviar correo:', error);
     // Log detallado del error
@@ -133,6 +131,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       console.error('Error message:', error.message);
       console.error('Error stack:', error.stack);
     }
-    return res.status(500).json({ error: 'Error interno al enviar el correo' });
+    const headers = new Headers();
+    applySecurityHeaders(headers);
+    return Response.json({ error: 'Error interno al enviar el correo' }, { status: 500, headers });
   }
-}
+};

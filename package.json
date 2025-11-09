@@ -14,7 +14,6 @@
     "@emailjs/nodejs": "5.0.2",
     "@tailwindcss/forms": "0.5.10",
     "@vercel/analytics": "1.5.0",
-    "@vercel/node": "5.3.26",
     "@vercel/speed-insights": "1.2.0",
     "aos": "2.3.4",
     "eslint-config-prettier": "10.1.8",

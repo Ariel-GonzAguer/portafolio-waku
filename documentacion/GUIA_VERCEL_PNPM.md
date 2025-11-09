@@ -9,22 +9,25 @@ Vercel está intentando usar yarn en lugar de pnpm, causando el error:
 ## Error: build_utils_1.getSpawnOptions is not a function
 
 ### Síntomas
-Este error ocurre durante el deployment en Vercel y está relacionado con incompatibilidades en las utilidades de build.
+Este error ocurre durante el deployment en Vercel y está relacionado con incompatibilidades entre el sistema de API routes de Waku y Vercel Functions.
+
+### Causa raíz
+Waku tiene su **propio sistema de API routes** que usa el estándar Web API (`Request`/`Response`), diferente al de Vercel (`VercelRequest`/`VercelResponse`). Las API routes de Waku deben:
+- Estar en `src/pages/api/` (no en `/api/` directamente)
+- Exportar handlers como `POST`, `GET`, etc. que retornan `Response`
+- Usar `Response.json()` en lugar de `res.json()`
 
 ### Soluciones aplicadas
 
-1. **Actualizar @vercel/node**: Ejecutar `pnpm update @vercel/node` para usar la versión más reciente.
+1. **Mover API routes a la estructura de Waku**: Las rutas API deben estar en `src/pages/api/` y usar Web Standards.
 
-2. **Configurar framework en vercel.json**:
-   ```json
-   {
-     "framework": "waku",
-     "buildCommand": "pnpm build",
-     "installCommand": "pnpm install --frozen-lockfile"
-   }
-   ```
+2. **Eliminar configuración de Vercel Functions**: Remover la sección `functions` de `vercel.json` ya que Waku maneja las rutas automáticamente.
 
-3. **Verificar versiones de Node.js**: Asegurarse de usar Node.js 18.x o superior en Vercel.
+3. **Actualizar utilidades de seguridad**: Adaptar funciones como `getClientIp` para trabajar con `Headers` estándar.
+
+4. **Actualizar @vercel/node** (si se usa): Ejecutar `pnpm update @vercel/node` para la versión más reciente.
+
+5. **Verificar versiones de Node.js**: Asegurarse de usar Node.js 18.x o superior en Vercel.
 
 ## Solución
 
@@ -95,9 +98,43 @@ corepack --version
 corepack prepare --help
 ```
 
+## API Routes en Waku
+
+### Estructura correcta
+```
+src/
+  pages/
+    api/
+      enviarCorreo.ts  ← API route de Waku
+```
+
+### Ejemplo de API route de Waku
+```typescript
+// src/pages/api/contact.ts
+export const POST = async (request: Request): Promise<Response> => {
+  const body = await request.json();
+  
+  // Tu lógica aquí
+  
+  return Response.json({ message: 'Success' }, { status: 200 });
+};
+```
+
+### Diferencias clave entre Waku y Vercel Functions
+
+| Aspecto | Waku | Vercel Functions |
+|---------|------|------------------|
+| Ubicación | `src/pages/api/` | `/api/` |
+| Request | `Request` (Web API) | `VercelRequest` |
+| Response | `Response` (Web API) | `VercelResponse` |
+| Handler export | `export const POST = ...` | `export default function handler...` |
+| Headers | `request.headers.get('header-name')` | `req.headers['header-name']` |
+
 ## Notas importantes
 
 - Asegúrate de que `pnpm-lock.yaml` esté committeado en tu repositorio
 - Si usas corepack, el archivo `package.json` debe tener `"packageManager"` especificado
 - Vercel detecta automáticamente el package manager basado en los archivos lock presentes
-- Para proyectos Waku, especificar `"framework": "waku"` en `vercel.json` puede resolver problemas de build
+- **Para proyectos Waku**: NO especificar `"framework"` en `vercel.json` (no está soportado oficialmente)
+- **Para proyectos Waku**: NO usar la sección `functions` en `vercel.json` - Waku maneja las API routes automáticamente
+- Las API routes de Waku se despliegan automáticamente como Vercel Functions durante el build
