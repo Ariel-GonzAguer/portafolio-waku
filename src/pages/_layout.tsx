@@ -4,6 +4,7 @@ import '../styles.css';
 import type { ReactNode } from 'react';
 // componentes
 import { Footer } from '../components/footer';
+
 // analytics
 import { Analytics } from '@vercel/analytics/react';
 
@@ -20,6 +21,7 @@ export default async function HomeLayout({ children }: HomeLayoutProps) {
   );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const getConfig = async () => {
   return {
     render: 'static',

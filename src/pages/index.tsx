@@ -1,6 +1,3 @@
-// enrutado
-import { TransitionLink } from '../components/TransitionLink';
-
 /**
  * Página principal enfocada en presentar el mensaje clave del estudio.
  *
