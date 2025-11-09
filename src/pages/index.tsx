@@ -29,14 +29,13 @@ export default async function HomePage() {
       </section>
       <section title="servicios" className="w-full max-w-6xl mt-20 px-4"></section>
       <Servicios />
-      <section title="Marquee de tecnologías" className="w-full max-w-6xl mt-20 px-4 mb-20">
+      <section title="Marquee de tecnologías" className="w-full max-w-6xl mt-20 px-4 mb-4">
         <MarqueeTecnologias />
       </section>
-
-      <section title="Contacto" className="w-full max-w-6xl mt-20 px-4 mb-20"></section>
+      <section title="Contacto" className="w-full max-w-6xl mt-6 px-4 mb-20">
         <Contacto />
       </section>
-
+    </section>
   );
 }
 

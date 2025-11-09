@@ -73,14 +73,24 @@ export const POST = async (request: Request): Promise<Response> => {
 
     // Obtener el body del request
     const body = await request.json();
+    console.log('📥 Body recibido:', JSON.stringify(body, null, 2));
 
     // Sanitizar body
     const sanitizedUser_email = sanitizeEmail(body.user_email);
     const sanitizedUser_nombre = sanitizeHtml(body.user_nombre);
     const sanitizedUser_mensaje = sanitizeHtml(body.user_mensaje);
+    const sanitizedServicio = sanitizeHtml(body.servicio || 'No especificado');
+
+    console.log('🧹 Datos sanitizados:', {
+      sanitizedUser_email,
+      sanitizedUser_nombre,
+      sanitizedUser_mensaje,
+      sanitizedServicio,
+    });
 
     // Validar email
     if (!isValidEmail(body.user_email)) {
+      console.log('❌ Validación fallida: Email inválido -', body.user_email);
       const headers = new Headers();
       applySecurityHeaders(headers);
       return Response.json({ error: 'Email inválido' }, { status: 400, headers });
@@ -88,13 +98,20 @@ export const POST = async (request: Request): Promise<Response> => {
 
     // Validar campos mínimos
     if (!sanitizedUser_email || !sanitizedUser_nombre || !sanitizedUser_mensaje) {
+      console.log('❌ Validación fallida: Datos insuficientes', {
+        sanitizedUser_email: !!sanitizedUser_email,
+        sanitizedUser_nombre: !!sanitizedUser_nombre,
+        sanitizedUser_mensaje: !!sanitizedUser_mensaje,
+      });
       const headers = new Headers();
       applySecurityHeaders(headers);
       return Response.json({ error: 'Datos insuficientes' }, { status: 400, headers });
     }
 
+    console.log('✅ Validaciones pasadas correctamente');
+
     // Validar que las variables de entorno de EmailJS estén definidas
-    if (!process.env.EMAILJS_PUBLIC_KEY || !process.env.EMAILJS_PRIVATE_KEY) {
+    if (!process.env.EMAILJS_PUBLIC_KEY || !process.env.EMAILJS_PRIVATE_KEY || !process.env.EMAILJS_TEMPLATE_ID) {
       const headers = new Headers();
       applySecurityHeaders(headers);
       return Response.json(
@@ -109,11 +126,16 @@ export const POST = async (request: Request): Promise<Response> => {
       privateKey: process.env.EMAILJS_PRIVATE_KEY!,
     });
 
-    const response = await emailjs.send(process.env.EMAILJS_SERVICE_ID!, 'CAMBIAR', {
-      user_email: sanitizedUser_email,
-      user_nombre: sanitizedUser_nombre,
-      user_mensaje: sanitizedUser_mensaje,
-    });
+    const response = await emailjs.send(
+      process.env.EMAILJS_SERVICE_ID!,
+      process.env.EMAILJS_TEMPLATE_ID!,  // ← Ahora usa variable de entorno
+      {
+        user_email: sanitizedUser_email,
+        user_name: sanitizedUser_nombre,
+        user_mensaje: sanitizedUser_mensaje,
+        servicio: sanitizedServicio,
+      }
+    );
 
     const headers = new Headers();
     applySecurityHeaders(headers);
