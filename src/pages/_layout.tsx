@@ -17,7 +17,7 @@ export default async function HomeLayout({ children }: HomeLayoutProps) {
       {/* Metadata global para SEO y social sharing */}
       <html lang="es" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel="icon" href="/imagenes/soloGato.png" />
+      <link rel="icon" href="/imagenes/soloGato.png" title='favicon Gato Rojo Lab' />
       <meta name="description" content="GatoRojoLab — Diseño UX, Desarrollo JAMstack, Accesibilidad e Investigación." />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href="https://portafolio-waku.vercel.app/" />
@@ -28,7 +28,7 @@ export default async function HomeLayout({ children }: HomeLayoutProps) {
       <meta property="og:type" content="website" />
       <meta property="og:title" content="GatoRojoLab — Desarrollo web y UX centrado en la persona" />
       <meta property="og:description" content="GatoRojoLab — Diseño UX, desarrollo JAMstack, accesibilidad y investigación." />
-      <meta property="og:image" content="/imagenes/soloGato.png" />
+      <meta property="og:image" content="/imagenes/soloGato.png" title='favicon Gato Rojo Lab' />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="theme-color" content="#0f172a" />
 
