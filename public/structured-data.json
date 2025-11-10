@@ -1,0 +1,32 @@
+
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Gato Rojo Lab - Desarrollo web minimalista y práctico",
+    "url": "https://gatorojolab.com",
+    "image": "https://gatorojolab.com/assets/imgs/cat-favicon.png",
+    "description": "Empresa de desarrollo web minimalista y práctico.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Desamparados",
+      "addressRegion": "San José",
+      "addressCountry": "CR"
+    },
+
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "10:00",
+        "closes": "17:00"
+      }
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "telephone": "+506 6368 5484",
+      "availableLanguage": ["Spanish", "English"]
+    }
+  }
+]

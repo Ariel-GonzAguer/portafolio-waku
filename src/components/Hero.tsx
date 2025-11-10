@@ -14,7 +14,7 @@ export default function Hero() {
         L<span className="text-gris-claro">A</span>B
       </h1>
 
-      <img src="/imagenes/gatoRojoLab-mini.png" alt="Gato Rojo Lab" width={300} height={300} className="mt-6" />
+      <img src="/imagenes/soloGato.png" alt="Gato Rojo Lab" width={300} height={300} className="my-10" />
       <p className="text-4xl py-8 text-center">Soluciones centradas en la Persona Usuaria</p>
       <p className="text-2xl text-center">Accesibilidad, minimalismo y creatividad</p>
 
