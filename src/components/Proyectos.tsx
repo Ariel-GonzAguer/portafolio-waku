@@ -1,11 +1,11 @@
 'use client';
 
 // componentes
-import { AOSProvider } from "./AOSProvider"
+import { AOSProvider } from './AOSProvider';
 // data
 import { proyectos } from '../data/proyectos';
 // hooks
-import useIsMobile from "../hooks/useIsMobile";
+import useIsMobile from '../hooks/useIsMobile';
 
 export default function Proyectos() {
   const isMobile = useIsMobile();
@@ -13,15 +13,17 @@ export default function Proyectos() {
   return (
     <section className="mb-20">
       <AOSProvider />
-      <h2 className="text-center text-3xl" data-aos="zoom-in">Algunos de los proyectos realizados este año</h2>
+      <h2 className="text-center text-3xl" data-aos="zoom-in">
+        Algunos de los proyectos realizados este año
+      </h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-8">
-        {proyectos.map((proyecto) => (
+        {proyectos.map(proyecto => (
           <article
             data-aos={`fade-${Number(proyecto.id) % 2 === 0 ? 'right' : 'left'}`}
-            data-aos-delay={`${ isMobile ? 0 : Number(proyecto.id) * 200}`}
+            data-aos-delay={`${isMobile ? 0 : Number(proyecto.id) * 200}`}
             key={proyecto.id}
             className="p-4"
-            >
+          >
             <img
               src={Array.isArray(proyecto.img) ? proyecto.img[0] : proyecto.img}
               alt={`screenshot que muestra una pantalla de ${proyecto.nombre}`}
@@ -43,7 +45,6 @@ export default function Proyectos() {
           </article>
         ))}
       </div>
-
     </section>
-  )
+  );
 }

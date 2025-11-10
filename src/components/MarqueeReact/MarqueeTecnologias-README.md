@@ -40,19 +40,19 @@ export default App;
 
 ## Props
 
-| Prop | Tipo | Default | Descripción |
-|------|------|---------|-------------|
-| `technologies` | `Technology[]` | Lista por defecto | Array de tecnologías a mostrar |
-| `title` | `string` | "Tecnologías disponibles" | Título de la sección |
-| `animationDuration` | `number` | 45 | Duración de la animación en segundos |
-| `className` | `string` | "" | Clase CSS adicional para el contenedor |
+| Prop                | Tipo           | Default                   | Descripción                            |
+| ------------------- | -------------- | ------------------------- | -------------------------------------- |
+| `technologies`      | `Technology[]` | Lista por defecto         | Array de tecnologías a mostrar         |
+| `title`             | `string`       | "Tecnologías disponibles" | Título de la sección                   |
+| `animationDuration` | `number`       | 45                        | Duración de la animación en segundos   |
+| `className`         | `string`       | ""                        | Clase CSS adicional para el contenedor |
 
 ## Interface Technology
 
 ```tsx
 interface Technology {
-  name: string;  // Nombre de la tecnología
-  icon: string;  // Ruta al icono (SVG, PNG, etc.)
+  name: string; // Nombre de la tecnología
+  icon: string; // Ruta al icono (SVG, PNG, etc.)
 }
 ```
 
@@ -62,12 +62,12 @@ interface Technology {
 
 ```tsx
 const customTechnologies = [
-  { name: "Next.js", icon: "/icons/nextjs.svg" },
-  { name: "Node.js", icon: "/icons/nodejs.svg" },
-  { name: "MongoDB", icon: "/icons/mongodb.svg" }
+  { name: 'Next.js', icon: '/icons/nextjs.svg' },
+  { name: 'Node.js', icon: '/icons/nodejs.svg' },
+  { name: 'MongoDB', icon: '/icons/mongodb.svg' },
 ];
 
-<MarqueeTecnologias technologies={customTechnologies} />
+<MarqueeTecnologias technologies={customTechnologies} />;
 ```
 
 ### Título Personalizado

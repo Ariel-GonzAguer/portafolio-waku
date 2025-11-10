@@ -81,10 +81,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
 Añade atributos `data-aos` en los elementos que deben animarse cuando entren en el viewport.
 
 ```tsx
-<section
-  className="flex flex-col items-center justify-center pt-10"
-  data-aos="fade-up"
->
+<section className="flex flex-col items-center justify-center pt-10" data-aos="fade-up">
   <h1 data-aos="zoom-in" data-aos-delay="100">
     GATO ROJO LAB
   </h1>
@@ -102,13 +99,13 @@ Añade atributos `data-aos` en los elementos que deben animarse cuando entren en
 
 ### Atributos útiles
 
-| Atributo             | Descripción                                              | Ejemplo            |
-| -------------------- | -------------------------------------------------------- | ------------------ |
-| `data-aos`           | Tipo de animación (`fade-up`, `zoom-in`, etc.)            | `data-aos="fade-up"` |
-| `data-aos-delay`     | Retraso en milisegundos                                  | `data-aos-delay="150"` |
-| `data-aos-duration`  | Duración personalizada                                   | `data-aos-duration="800"` |
-| `data-aos-easing`    | Función de easing                                        | `data-aos-easing="ease-in-out"` |
-| `data-aos-anchor`    | Elemento que desencadena la animación                    | `data-aos-anchor="#hero"` |
+| Atributo            | Descripción                                    | Ejemplo                         |
+| ------------------- | ---------------------------------------------- | ------------------------------- |
+| `data-aos`          | Tipo de animación (`fade-up`, `zoom-in`, etc.) | `data-aos="fade-up"`            |
+| `data-aos-delay`    | Retraso en milisegundos                        | `data-aos-delay="150"`          |
+| `data-aos-duration` | Duración personalizada                         | `data-aos-duration="800"`       |
+| `data-aos-easing`   | Función de easing                              | `data-aos-easing="ease-in-out"` |
+| `data-aos-anchor`   | Elemento que desencadena la animación          | `data-aos-anchor="#hero"`       |
 
 Consulta la [lista completa de animaciones](https://github.com/michalsnik/aos#-animations) para elegir la más adecuada.
 
@@ -128,7 +125,7 @@ Consulta la [lista completa de animaciones](https://github.com/michalsnik/aos#-a
 
 1. Ejecuta `pnpm dev` y abre el inspector del navegador.
 2. Verifica que el CSS de `aos/dist/aos.css` se haya cargado.
-3. Usa la pestaña *Elements* para confirmar que los nodos incluyen `aos-init` y luego `aos-animate` cuando entran en la vista.
+3. Usa la pestaña _Elements_ para confirmar que los nodos incluyen `aos-init` y luego `aos-animate` cuando entran en la vista.
 4. Si una animación no se dispara, revisa que `AOSProvider` esté montado solo una vez y que el atributo `data-aos` esté correctamente escrito.
 
 ---
@@ -142,6 +139,7 @@ En Waku, los componentes son **Server Components por defecto**. Solo necesitan `
 ### 6.2. Cuándo usar 'use client'
 
 ✅ **Necesitan 'use client':**
+
 - Componentes que usan **hooks de React** (`useState`, `useEffect`, `useCallback`, etc.)
 - Componentes que **manejan eventos del DOM** (`onClick`, `onSubmit`, `onChange`, etc.)
 - Componentes que **llaman APIs del navegador** (`fetch`, `localStorage`, `navigator`, etc.)
@@ -149,6 +147,7 @@ En Waku, los componentes son **Server Components por defecto**. Solo necesitan `
 - Componentes que usan **librerías que requieren el cliente** (AOS, animaciones, etc.)
 
 ❌ **NO necesitan 'use client':**
+
 - Componentes puramente presentacionales que solo renderizan JSX
 - Componentes que solo usan props y renderizado estático
 - Animaciones CSS puras (sin JavaScript)

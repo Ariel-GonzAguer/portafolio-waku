@@ -57,7 +57,7 @@ export default async function middleware(request: Request) {
   // Construir CSP que permita scripts desde self y los scripts inline con nonce
   const csp = [
     "default-src 'none'",
-    "frame-src https://vercel.live/",
+    'frame-src https://vercel.live/',
     `script-src 'self' 'nonce-${nonce}' https://www.gstatic.com https://www.googleapis.com https://vercel.live`,
     `script-src-elem 'self' 'nonce-${nonce}' https://vercel.live`,
     "connect-src 'self' https://firestore.googleapis.com https://*.firebaseio.com https://*.firebaseapp.com https://identitytoolkit.googleapis.com",

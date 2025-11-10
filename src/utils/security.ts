@@ -262,7 +262,7 @@ export const SECURITY_HEADERS = {
  * @param res - Response object
  */
 export function applySecurityHeaders(headers: Headers): void {
-Object.entries(SECURITY_HEADERS).forEach(([key, value]) => {
-headers.set(key, value);
-});
+  Object.entries(SECURITY_HEADERS).forEach(([key, value]) => {
+    headers.set(key, value);
+  });
 }

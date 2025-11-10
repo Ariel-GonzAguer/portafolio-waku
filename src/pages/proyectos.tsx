@@ -32,7 +32,7 @@ export default function ProyectosPage() {
                   ))}
                 </div>
               </div>
-              <div className='flex justify-end-safe'  >
+              <div className="flex justify-end-safe">
                 <a
                   href={proyecto.enlace}
                   target="_blank"

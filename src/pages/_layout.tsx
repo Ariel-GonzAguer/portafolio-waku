@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 // estilos
 import '../styles.css';
 // tipos
@@ -17,8 +18,11 @@ export default async function HomeLayout({ children }: HomeLayoutProps) {
       {/* Metadata global para SEO y social sharing */}
       <html lang="es" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel="icon" href="/imagenes/soloGato.png" title='favicon Gato Rojo Lab' />
-      <meta name="description" content="GatoRojoLab — Diseño UX, Desarrollo JAMstack, Accesibilidad e Investigación." />
+      <link rel="icon" href="/imagenes/soloGato.png" title="favicon Gato Rojo Lab" />
+      <meta
+        name="description"
+        content="GatoRojoLab — Diseño UX, Desarrollo JAMstack, Accesibilidad e Investigación."
+      />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href="https://portafolio-waku.vercel.app/" />
       <title> GatoRojoLab </title>
@@ -26,9 +30,15 @@ export default async function HomeLayout({ children }: HomeLayoutProps) {
       {/* Open Graph / Twitter */}
       <meta property="og:site_name" content="GatoRojoLab" />
       <meta property="og:type" content="website" />
-      <meta property="og:title" content="GatoRojoLab — Desarrollo web y UX centrado en la persona" />
-      <meta property="og:description" content="GatoRojoLab — Diseño UX, desarrollo JAMstack, accesibilidad y investigación." />
-      <meta property="og:image" content="/imagenes/soloGato.png" title='favicon Gato Rojo Lab' />
+      <meta
+        property="og:title"
+        content="GatoRojoLab — Desarrollo web y UX centrado en la persona"
+      />
+      <meta
+        property="og:description"
+        content="GatoRojoLab — Diseño UX, desarrollo JAMstack, accesibilidad y investigación."
+      />
+      <meta property="og:image" content="/imagenes/soloGato.png" title="favicon Gato Rojo Lab" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="theme-color" content="#0f172a" />
 
@@ -37,11 +47,13 @@ export default async function HomeLayout({ children }: HomeLayoutProps) {
 
       <section className="flex flex-col min-h-screen">
         {/* Enlace para accesibilidad: saltar al contenido */}
-        <a href="#main" className="sr-only focus:not-sr-only px-4 py-2" title='Saltar al contenido'>
+        <a href="#main" className="sr-only focus:not-sr-only px-4 py-2" title="Saltar al contenido">
           Saltar al contenido
         </a>
         <Analytics />
-        <main id="main" className="flex-1 bg-gris-heavy text-indigo-50">{children}</main>
+        <main id="main" className="flex-1 bg-gris-heavy text-indigo-50">
+          {children}
+        </main>
         <Footer />
       </section>
     </>

@@ -12,11 +12,11 @@ function App() {
 
 // Ejemplo con personalización
 const customTech = [
-  { name: "Next.js", icon: "/icons/nextjs.svg" },
-  { name: "Node.js", icon: "/icons/nodejs.svg" },
-  { name: "MongoDB", icon: "/icons/mongodb.svg" },
-  { name: "PostgreSQL", icon: "/icons/postgres.svg" },
-  { name: "Docker", icon: "/icons/docker.svg" }
+  { name: 'Next.js', icon: '/icons/nextjs.svg' },
+  { name: 'Node.js', icon: '/icons/nodejs.svg' },
+  { name: 'MongoDB', icon: '/icons/mongodb.svg' },
+  { name: 'PostgreSQL', icon: '/icons/postgres.svg' },
+  { name: 'Docker', icon: '/icons/docker.svg' },
 ];
 
 function CustomMarquee() {

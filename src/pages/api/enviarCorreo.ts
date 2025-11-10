@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 // Waku API Route - Usa Web Standards (Request/Response)
 // Utilidades de seguridad
 import {
@@ -111,16 +112,24 @@ export const POST = async (request: Request): Promise<Response> => {
     console.log('✅ Validaciones pasadas correctamente');
 
     // Validar que las variables de entorno de EmailJS estén definidas
-    if (!process.env.EMAILJS_PUBLIC_KEY || !process.env.EMAILJS_PRIVATE_KEY || !process.env.EMAILJS_TEMPLATE_ID || !process.env.EMAILJS_SERVICE_ID) {
+    if (
+      !process.env.EMAILJS_PUBLIC_KEY ||
+      !process.env.EMAILJS_PRIVATE_KEY ||
+      !process.env.EMAILJS_TEMPLATE_ID ||
+      !process.env.EMAILJS_SERVICE_ID
+    ) {
       const headers = new Headers();
       applySecurityHeaders(headers);
       return Response.json(
-        { error: 'Configuración de EmailJS incompleta', missing: {
-          EMAILJS_PUBLIC_KEY: !!process.env.EMAILJS_PUBLIC_KEY,
-          EMAILJS_PRIVATE_KEY: !!process.env.EMAILJS_PRIVATE_KEY,
-          EMAILJS_TEMPLATE_ID: !!process.env.EMAILJS_TEMPLATE_ID,
-          EMAILJS_SERVICE_ID: !!process.env.EMAILJS_SERVICE_ID,
-        } },
+        {
+          error: 'Configuración de EmailJS incompleta',
+          missing: {
+            EMAILJS_PUBLIC_KEY: !!process.env.EMAILJS_PUBLIC_KEY,
+            EMAILJS_PRIVATE_KEY: !!process.env.EMAILJS_PRIVATE_KEY,
+            EMAILJS_TEMPLATE_ID: !!process.env.EMAILJS_TEMPLATE_ID,
+            EMAILJS_SERVICE_ID: !!process.env.EMAILJS_SERVICE_ID,
+          },
+        },
         { status: 500, headers },
       );
     }
@@ -135,13 +144,13 @@ export const POST = async (request: Request): Promise<Response> => {
     try {
       response = await emailjs.send(
         process.env.EMAILJS_SERVICE_ID!,
-        process.env.EMAILJS_TEMPLATE_ID!,  // ← Ahora usa variable de entorno
+        process.env.EMAILJS_TEMPLATE_ID!, // ← Ahora usa variable de entorno
         {
           user_email: sanitizedUser_email,
           user_name: sanitizedUser_nombre,
           user_mensaje: sanitizedUser_mensaje,
           servicio: sanitizedServicio,
-        }
+        },
       );
     } catch (e) {
       console.error('EmailJS send error:', e);
@@ -149,7 +158,10 @@ export const POST = async (request: Request): Promise<Response> => {
       applySecurityHeaders(headers);
       // No exponemos credenciales, pero devolvemos el mensaje de error para debugging
       const message = e instanceof Error ? e.message : String(e);
-      return Response.json({ error: 'Error al enviar email (EmailJS)', detail: message }, { status: 502, headers });
+      return Response.json(
+        { error: 'Error al enviar email (EmailJS)', detail: message },
+        { status: 502, headers },
+      );
     }
 
     const headers = new Headers();

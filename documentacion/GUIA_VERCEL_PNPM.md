@@ -1,7 +1,9 @@
 # Configuración de Vercel para usar pnpm
 
 ## Problema
+
 Vercel está intentando usar yarn en lugar de pnpm, causando el error:
+
 ```
 "yarn" no se reconoce como un comando interno o externo
 ```
@@ -9,10 +11,13 @@ Vercel está intentando usar yarn en lugar de pnpm, causando el error:
 ## Error: build_utils_1.getSpawnOptions is not a function
 
 ### Síntomas
+
 Este error ocurre durante el deployment en Vercel y está relacionado con incompatibilidades entre el sistema de API routes de Waku y Vercel Functions.
 
 ### Causa raíz
+
 Waku tiene su **propio sistema de API routes** que usa el estándar Web API (`Request`/`Response`), diferente al de Vercel (`VercelRequest`/`VercelResponse`). Las API routes de Waku deben:
+
 - Estar en `src/pages/api/` (no en `/api/` directamente)
 - Exportar handlers como `POST`, `GET`, etc. que retornan `Response`
 - Usar `Response.json()` en lugar de `res.json()`
@@ -101,6 +106,7 @@ corepack prepare --help
 ## API Routes en Waku
 
 ### Estructura correcta
+
 ```
 src/
   pages/
@@ -109,26 +115,27 @@ src/
 ```
 
 ### Ejemplo de API route de Waku
+
 ```typescript
 // src/pages/api/contact.ts
 export const POST = async (request: Request): Promise<Response> => {
   const body = await request.json();
-  
+
   // Tu lógica aquí
-  
+
   return Response.json({ message: 'Success' }, { status: 200 });
 };
 ```
 
 ### Diferencias clave entre Waku y Vercel Functions
 
-| Aspecto | Waku | Vercel Functions |
-|---------|------|------------------|
-| Ubicación | `src/pages/api/` | `/api/` |
-| Request | `Request` (Web API) | `VercelRequest` |
-| Response | `Response` (Web API) | `VercelResponse` |
-| Handler export | `export const POST = ...` | `export default function handler...` |
-| Headers | `request.headers.get('header-name')` | `req.headers['header-name']` |
+| Aspecto        | Waku                                 | Vercel Functions                     |
+| -------------- | ------------------------------------ | ------------------------------------ |
+| Ubicación      | `src/pages/api/`                     | `/api/`                              |
+| Request        | `Request` (Web API)                  | `VercelRequest`                      |
+| Response       | `Response` (Web API)                 | `VercelResponse`                     |
+| Handler export | `export const POST = ...`            | `export default function handler...` |
+| Headers        | `request.headers.get('header-name')` | `req.headers['header-name']`         |
 
 ## Notas importantes
 
