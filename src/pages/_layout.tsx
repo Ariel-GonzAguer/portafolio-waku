@@ -18,15 +18,16 @@ export default async function HomeLayout({ children }: HomeLayoutProps) {
       <html lang="es" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="icon" href="/imagenes/soloGato.png" />
-      <meta name="description" content="GatoRojoLab — Portafolio de Ariel: diseño UX, desarrollo JAMstack, accesibilidad e investigación." />
+      <meta name="description" content="GatoRojoLab — Diseño UX, Desarrollo JAMstack, Accesibilidad e Investigación." />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href="https://portafolio-waku.vercel.app/" />
+      <title> GatoRojoLab </title>
 
       {/* Open Graph / Twitter */}
       <meta property="og:site_name" content="GatoRojoLab" />
       <meta property="og:type" content="website" />
       <meta property="og:title" content="GatoRojoLab — Desarrollo web y UX centrado en la persona" />
-      <meta property="og:description" content="Portafolio de Ariel — Diseño UX, desarrollo JAMstack, accesibilidad y investigación." />
+      <meta property="og:description" content="GatoRojoLab — Diseño UX, desarrollo JAMstack, accesibilidad y investigación." />
       <meta property="og:image" content="/imagenes/soloGato.png" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="theme-color" content="#0f172a" />
