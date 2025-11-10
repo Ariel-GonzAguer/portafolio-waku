@@ -24,7 +24,8 @@ export default function Proyectos() {
             >
             <img
               src={Array.isArray(proyecto.img) ? proyecto.img[0] : proyecto.img}
-              alt={`screenshot de que muestra una pantalla de ${proyecto.nombre}`}
+              alt={`screenshot que muestra una pantalla de ${proyecto.nombre}`}
+              title={proyecto.nombre}
               className="w-full h-90 object-contain"
             />
             <div className="p-6"></div>
@@ -34,6 +35,7 @@ export default function Proyectos() {
               href={proyecto.enlace}
               target="_blank"
               rel="noopener noreferrer"
+              title={proyecto.nombre}
               className="absolute right-4 bg-doradoSK text-black px-4 py-2 rounded hover:bg-gatorojo transition"
             >
               Ver Proyecto
