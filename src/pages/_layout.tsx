@@ -37,7 +37,7 @@ export default async function HomeLayout({ children }: HomeLayoutProps) {
 
       <section className="flex flex-col min-h-screen">
         {/* Enlace para accesibilidad: saltar al contenido */}
-        <a href="#main" className="sr-only focus:not-sr-only px-4 py-2">
+        <a href="#main" className="sr-only focus:not-sr-only px-4 py-2" title='Saltar al contenido'>
           Saltar al contenido
         </a>
         <Analytics />
