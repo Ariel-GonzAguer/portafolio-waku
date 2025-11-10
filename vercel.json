@@ -6,10 +6,6 @@
       "source": "/(.*)",
       "headers": [
         {
-          "key": "Content-Security-Policy",
-          "value": "default-src 'none'; frame-src https://vercel.live/; script-src 'self' https://www.gstatic.com https://www.googleapis.com https://vercel.live; script-src-elem 'self' https://vercel.live; connect-src 'self' https://firestore.googleapis.com https://*.firebaseio.com https://*.firebaseapp.com https://identitytoolkit.googleapis.com; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'self' https://vercel.live; object-src 'none'; base-uri 'self'; manifest-src 'self';"
-        },
-        {
           "key": "X-Frame-Options",
           "value": "SAMEORIGIN"
         },
