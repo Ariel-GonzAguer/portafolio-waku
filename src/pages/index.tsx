@@ -16,8 +16,9 @@ export default async function HomePage() {
       <section title="proyectos" className="w-full max-w-6xl mt-22 px-4">
         <Proyectos />
       </section>
-      <section title="servicios" className="w-full max-w-6xl mt-20 px-4"></section>
+      <section title="servicios" className="w-full max-w-6xl mt-20 ">
       <Servicios />
+      </section>
       <section title="Marquee de tecnologías" className="w-full max-w-6xl mt-20 px-4 mb-4">
         <MarqueeTecnologias />
       </section>
