@@ -5,7 +5,7 @@ export const proyectos = [
     descripcion:
       'Aplicación web instalable que permite a las personas visitantes registrar sus visitas.',
     tecnologias: ['React', 'Zustand', 'React-PDF', 'QRCode'],
-    enlace: 'https://github.com/usuario/pasaporte-museo',
+    enlace: 'https://pasaporte-museofan.vercel.app/',
     tags: ['aplicación web', 'aplicación móvil', 'cultura', 'Vercel'],
     img: ['/imagenes/proyectos/museo.webp'],
   },

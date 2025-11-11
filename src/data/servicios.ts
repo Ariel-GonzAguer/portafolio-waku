@@ -9,16 +9,16 @@ export const servicios = [
   },
   {
     id: '1',
-    nombre: 'Diseño de Interfaces de Usuario (UI)',
+    nombre: 'Diseño de Interfaces (UI)',
     descripcion:
       'Diseño de interfaces intuitivas y accesibles siguiendo principios de usabilidad. Creación de sistemas de diseño coherentes y componentes reutilizables con enfoque en la experiencia visual.',
     tags: ['diseño UI', 'accesibilidad', 'sistemas de diseño', 'componentes'],
   },
   {
     id: '2',
-    nombre: 'Investigación de Usuario (UX Research)',
+    nombre: 'Investigación Experiencias (UX Research)',
     descripcion:
-      'Investigación profunda para entender necesidades de usuarios. Incluye entrevistas, encuestas, análisis de comportamiento y pruebas de usabilidad para informar decisiones de diseño.',
+      'Investigación profunda para entender necesidades de las personas usuarias. Incluye entrevistas, encuestas, análisis de comportamiento y pruebas de usabilidad para informar decisiones de diseño.',
     tags: ['UX research', 'entrevistas', 'usabilidad', 'análisis de datos', 'personas'],
   },
   {
@@ -37,9 +37,9 @@ export const servicios = [
   },
   {
     id: '5',
-    nombre: 'Auditoria de Interfaz y Experiencia de Usuario (UI/UX)',
+    nombre: 'Auditoria de Interfaz y Experiencias (UI/UX)',
     descripcion:
-      'Evaluación exhaustiva de interfaces y experiencias de usuario para identificar áreas de mejora. Proporcionamos recomendaciones prácticas para optimizar la usabilidad, accesibilidad y satisfacción del usuario.',
+      'Evaluación exhaustiva de interfaces y experiencias para identificar áreas de mejora. Proporcionamos recomendaciones prácticas para optimizar la usabilidad, accesibilidad y satisfacción de la persona usuaria.',
     tags: ['usabilidad', 'accesibilidad', 'satisfacción', 'evaluación'],
   },
   {
