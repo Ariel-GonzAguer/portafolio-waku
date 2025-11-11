@@ -3,7 +3,7 @@ export const servicios = [
     id: '0',
     nombre: 'Desarrollo de Aplicaciones Web JAM Stack',
     descripcion:
-      'Creación de aplicaciones web modernas utilizando TypeScript, APIs y Markup pre-renderizado. Desarrollo de soluciones escalables con React+Vite, Waku o Astro, optimizadas para rendimiento y SEO.',
+      'Creación de aplicaciones web modernas utilizando TypeScript, APIs y Markup. Desarrollo de soluciones escalables con React+Vite, Waku o Astro, optimizadas para rendimiento y SEO.',
     tecnologias: ['React', 'Waku', 'Astro', 'TypeScript'],
     tags: ['desarrollo web', 'JAM Stack', 'React', 'SEO'],
   },
@@ -23,10 +23,10 @@ export const servicios = [
   },
   {
     id: '3',
-    nombre: 'Desarrollo de Progressive Web Apps (PWA)',
+    nombre: 'Integración de componentes con IA',
     descripcion:
-      'Aplicaciones web instalables que ofrecen una experiencia nativa. Optimizadas para móviles y desktop.',
-    tags: ['PWA', 'aplicaciones móviles', 'PWA', 'instalable'],
+      'Incorporación de funcionalidades impulsadas por inteligencia artificial en aplicaciones web. Implementación de chatbots y generación de contenido.',
+    tags: ['IA', 'inteligencia artificial', 'chatbots', 'análisis predictivo'],
   },
   {
     id: '4',
