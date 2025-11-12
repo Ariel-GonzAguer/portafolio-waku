@@ -231,7 +231,41 @@ Estimado para 1,000 conversaciones/mes:
 
 ---
 
-## 🛠️ Proceso de Implementación
+## � Modelo de cobro y suscripción (recomendado)
+
+Recomendamos combinar un **pago único de implementación (setup)** + una **suscripción mensual** que cubra operación, soporte y costes variables (APIs, hosting, monitorización). Esto es lo más habitual y protege tanto al proveedor como al cliente.
+
+### ¿Por qué este modelo?
+- El pago único cubre trabajo puntual: análisis, desarrollo, integraciones y entrega.
+- La suscripción cubre mantenimiento, monitorización, parches de seguridad, backups y el coste variable de consumo de APIs.
+- Permite ofrecer SLA y soporte continuado sin depender de pagos por hora constantes.
+
+### Opciones de facturación de APIs (elige una al contratar)
+- Opción A (recomendada): incluir una tarifa mensual base que cubra un umbral (p.ej. 2k conversaciones/mes). El exceso se factura como overage (p.ej. $0.30 por 100 consultas extra).
+- Opción B: el cliente suministra sus propias keys de OpenAI/Gemini y asume los costes; usted factura sólo setup y mantenimiento.
+- Opción C (Enterprise): incluye el coste de APIs dentro de la suscripción, con límites y tarifas de exceso negociadas.
+
+### Tabla: ejemplo de setup + tarifa mensual por paquete
+
+| Paquete | Pago único (setup) | Mensual (hosting + soporte) | Notas |
+|---|---:|---:|---|
+| Básico | $800 | $20 - $50 | Ideal si el cliente usa Gemini en tier gratuito; API no incluida por defecto |
+| Profesional | $1,500 | $75 - $150 | Incluye analytics básico y 1h soporte/mes; incluye umbral de API (p.ej. 2k convs) |
+| Enterprise | $3,000+ | $300 - $1,000 | SLA, integraciones CRM y soporte 24/7; APIs incluidas hasta un límite negociado |
+
+### Ejemplo de términos de pago y contrataciones
+- **Pago inicial:** 50% al firmar para iniciar el desarrollo; 50% restante al entregar.
+- **Facturación mensual:** se factura al inicio de cada periodo (con detalle de tarifa base y overages).
+- **Plazo mínimo de suscripción recomendado:** 1-3 meses (recomendado 3 meses para contratos con soporte).
+- **Soporte incluido:** X horas/mes según paquete; horas extra a tarifa (p.ej. $60/h o tarifa negociada).
+
+### Cláusulas útiles para la propuesta
+- Política de overage: el exceso se factura en la siguiente factura mensual con desglose de consumo.
+- Cancelación: preaviso de 30 días para terminar la suscripción.
+- Garantía: 30 días de garantía contra defectos tras la entrega.
+
+
+## �🛠️ Proceso de Implementación
 
 ### Fase 1: Discovery (Días 1-2)
 
