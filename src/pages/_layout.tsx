@@ -3,9 +3,6 @@
 import '../styles.css';
 // tipos
 import type { ReactNode } from 'react';
-// componentes
-import { Footer } from '../components/footer';
-
 // analytics
 import { Analytics } from '@vercel/analytics/react';
 
@@ -54,7 +51,6 @@ export default async function HomeLayout({ children }: HomeLayoutProps) {
         <main id="main" className="flex-1 bg-gris-heavy text-indigo-50">
           {children}
         </main>
-        <Footer />
       </section>
     </>
   );
