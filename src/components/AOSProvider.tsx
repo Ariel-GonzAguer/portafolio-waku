@@ -1,7 +1,8 @@
-// src/components/AOSProvider.tsx
 'use client';
 
+// hooks
 import { useEffect } from 'react';
+// librería AOS → animation on scroll
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -28,7 +29,7 @@ export function AOSProvider() {
     });
 
     // Función para refrescar AOS cuando cambie el contenido
-    const refreshAOS = () => {
+    function refreshAOS() {
       AOS.refresh();
     };
 
