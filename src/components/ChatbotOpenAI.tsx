@@ -143,7 +143,7 @@ export default function ChatbotOpenAI() {
       }));
 
       // Llamar a la API
-      const response = await fetch('/api/chat-openai', {
+      const response = await fetch('/api/api-openai', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -235,7 +235,7 @@ export default function ChatbotOpenAI() {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white rounded-full p-4 shadow-lg transition-all duration-300 hover:scale-110"
+          className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-red-300 to-red-600 hover:from-amber-300 hover:to-amber-700 text-black rounded-full p-4 shadow-lg transition-all duration-300 hover:scale-110"
           aria-label="Abrir chat"
           title="¿Necesitas ayuda?"
         >
@@ -260,7 +260,7 @@ export default function ChatbotOpenAI() {
       {isOpen && (
         <div className="fixed bottom-6 right-6 z-50 w-96 h-[600px] bg-white rounded-lg shadow-2xl flex flex-col overflow-hidden">
           {/* Header */}
-          <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-4 flex justify-between items-center">
+          <div className="bg-gradient-to-r from-red-300 to-red-600 text-black p-4 flex justify-between items-center">
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
               <h3 className="font-semibold">Asistente Virtual</h3>
@@ -328,7 +328,7 @@ export default function ChatbotOpenAI() {
                 <div
                   className={`max-w-[80%] rounded-lg p-3 ${
                     msg.role === 'user'
-                      ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white'
+                      ? 'bg-gradient-to-r from-red-300 to-red-600 text-white'
                       : 'bg-white text-gray-800 shadow'
                   }`}
                 >
@@ -368,12 +368,12 @@ export default function ChatbotOpenAI() {
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Escribe tu pregunta..."
                 disabled={isLoading}
-                className="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-600 disabled:bg-gray-100 disabled:cursor-not-allowed text-gray-800"
+                className="flex-1 border border-black rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-black disabled:bg-gray-100 disabled:cursor-not-allowed text-black"
               />
               <button
                 type="submit"
                 disabled={isLoading || !input.trim()}
-                className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white rounded-lg px-4 py-2 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                className="bg-gradient-to-r from-red-300 to-red-600 hover:from-amber-300 hover:to-amber-700 text-black rounded-lg px-4 py-2 transition disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

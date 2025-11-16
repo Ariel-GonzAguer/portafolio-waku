@@ -5,6 +5,7 @@ import Servicios from '../components/Servicios';
 import MarqueeTecnologias from '../components/MarqueeReact/MarqueeTecnologias';
 import Contacto from '../components/Contacto';
 import Hero from '../components/Hero';
+import ChatbotOpenAI from '../components/ChatbotOpenAI';
 
 export default async function HomePage() {
   return (
@@ -17,13 +18,16 @@ export default async function HomePage() {
         <Proyectos />
       </section>
       <section title="servicios" className="w-full max-w-6xl mt-20 ">
-      <Servicios />
+        <Servicios />
       </section>
       <section title="Marquee de tecnologías" className="w-full max-w-6xl mt-20 px-4 mb-4">
         <MarqueeTecnologias />
       </section>
       <section title="Contacto" className="w-full max-w-6xl mt-6 px-4 mb-20">
         <Contacto />
+      </section>
+      <section title="Chatbot OpenAI" className="w-full max-w-6xl mb-20 px-4">
+        <ChatbotOpenAI />
       </section>
     </section>
   );
