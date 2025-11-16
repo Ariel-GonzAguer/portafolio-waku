@@ -71,3 +71,30 @@ body {
     opacity: 1;
   }
 }
+
+/* AOS - Asegurar que los elementos no se salgan del viewport */
+.aos-animate {
+  transform: translateZ(0);
+}
+
+/* AOS - Prevenir overflow horizontal */
+[data-aos] {
+  overflow: hidden;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+[data-aos][data-aos^='fade-left'],
+[data-aos][data-aos^='fade-right'],
+[data-aos][data-aos^='slide-left'],
+[data-aos][data-aos^='slide-right'] {
+  will-change: transform;
+  position: relative;
+}
+
+/* Contenedor específico para animaciones AOS */
+.aos-container {
+  overflow-x: hidden;
+  width: 100%;
+}

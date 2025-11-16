@@ -11,14 +11,14 @@ export default function Servicios() {
   const isMobile = useIsMobile();
 
   return (
-    <section className="mb-20" title='servicios'>
+    <section className="mb-20 aos-container" title='servicios'>
       <AOSProvider />
       <h2 className="text-center text-4xl font-bold mb-10">Servicios</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         {servicios.map(servicio => (
           <article
             data-aos={`zoom-in-${Number(servicio.id) % 2 === 0 ? 'right' : 'left'}`}
-            data-aos-delay={`${isMobile ? 0 : Number(servicio.id) * 200}`}
+            data-aos-delay={isMobile ? 0 : Number(servicio.id) * 200}
             key={servicio.id}
             className={`p-4 text-center text-balance`}
           >

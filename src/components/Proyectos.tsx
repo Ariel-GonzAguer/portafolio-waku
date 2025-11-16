@@ -11,7 +11,7 @@ export default function Proyectos() {
   const isMobile = useIsMobile();
 
   return (
-    <section className="my-20 overflow-x-hidden" title='proyectos'>
+    <section className="my-20 aos-container" title='proyectos'>
       <AOSProvider />
       <h2 className="text-center text-3xl" data-aos="zoom-in">
         Algunos de los proyectos realizados este año
@@ -19,7 +19,7 @@ export default function Proyectos() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-8">
         {proyectos.map(proyecto => (
           <article
-            data-aos={`fade-${Number(proyecto.id) % 2 === 0 ? 'right' : 'left'}`}
+            data-aos={isMobile ? `zoom-in-${Number(proyecto.id) % 2 === 0 ? 'right' : 'left'}` : 'fade-up'}
             data-aos-delay={isMobile ? 0 : Number(proyecto.id) * 200}
             key={proyecto.id}
             className="p-4"

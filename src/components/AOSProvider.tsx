@@ -17,10 +17,26 @@ export function AOSProvider() {
       duration: 600,
       easing: 'ease-out',
       once: true,
+      offset: 50,
+      disable: false,
+      startEvent: 'DOMContentLoaded',
+      disableMutationObserver: false,
+      throttleDelay: 99,
+      // Configuraciones adicionales para prevenir overflow
+      anchorPlacement: 'top-bottom',
+      mirror: false, // Deshabilitar animaciones espejo
     });
 
+    // Función para refrescar AOS cuando cambie el contenido
+    const refreshAOS = () => {
+      AOS.refresh();
+    };
+
+    // Escuchar cambios en el DOM
+    window.addEventListener('resize', refreshAOS);
+
     return () => {
-      AOS.refreshHard();
+      window.removeEventListener('resize', refreshAOS);
     };
   }, []);
 
