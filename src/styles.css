@@ -1,4 +1,14 @@
-@import 'tailwindcss';
+@import 'tailwindcss' safelist: [
+  'aos-init',
+  'aos-animate',
+  'aos-no-overflow',
+  {
+    pattern: /^(fade|slide|zoom|flip)-(up|down|left|right|in|out)$/,
+  },
+  {
+    pattern: /^(fade|slide|zoom|flip)-(up|down|left|right|in|out)-(sm|md|lg|xl)$/,
+  }
+];
 
 * {
   box-sizing: border-box;

@@ -5,6 +5,8 @@ import '../styles.css';
 import type { ReactNode } from 'react';
 // analytics
 import { Analytics } from '@vercel/analytics/react';
+// componentes
+import { AOSProvider } from '../components/AOSProvider';
 
 // layout específico para la página de inicio (sin header)
 type HomeLayoutProps = { children: ReactNode };
@@ -55,6 +57,7 @@ export default async function HomeLayout({ children }: HomeLayoutProps) {
           Saltar al contenido
         </a>
         <Analytics />
+        <AOSProvider />
         <main id="main" className="flex-1 bg-gris-heavy text-indigo-50">
           {children}
         </main>

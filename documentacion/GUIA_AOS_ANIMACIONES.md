@@ -1,6 +1,6 @@
 # Guía Completa de AOS (Animate On Scroll) para Proyectos React/TypeScript
 
-## 📋 Tabla de Contenidos
+## Tabla de Contenidos
 
 1. [Introducción](#introducción)
 2. [Instalación y Configuración](#instalación-y-configuración)
@@ -17,19 +17,19 @@
 
 ---
 
-## 🎯 Introducción
+## Introducción
 
 **AOS (Animate On Scroll)** es una biblioteca ligera y potente para crear animaciones de scroll en aplicaciones web. Perfecta para mejorar la experiencia de usuario con animaciones suaves y atractivas.
 
-### ✨ Características Principales
-- 🚀 **Ligero**: Solo ~3KB gzipped
-- ⚡ **Alto rendimiento**: Optimizado con GPU
-- 📱 **Responsive**: Funciona en todos los dispositivos
-- 🎨 **Personalizable**: Más de 20 animaciones predefinidas
-- 🔧 **Configurable**: Control total sobre timing y comportamiento
-- ♿ **Accesible**: Respeta las preferencias de reducción de movimiento
+### Características Principales
+- **Ligero**: Solo ~3KB gzipped
+- **Alto rendimiento**: Optimizado con GPU
+- **Responsive**: Funciona en todos los dispositivos
+- **Personalizable**: Más de 20 animaciones predefinidas
+- **Configurable**: Control total sobre timing y comportamiento
+- **Accesible**: Respeta las preferencias de reducción de movimiento
 
-### 🎯 Casos de Uso Ideales
+### Casos de Uso Ideales
 - Animaciones de entrada en secciones
 - Cards que aparecen al hacer scroll
 - Elementos que se revelan progresivamente
@@ -38,7 +38,7 @@
 
 ---
 
-## 📦 Instalación y Configuración
+## Instalación y Configuración
 
 ### Instalación
 ```bash
@@ -84,7 +84,7 @@ export function AOSProvider() {
       throttleDelay: 99,
       disableMutationObserver: false,
 
-      // Configuraciones adicionales
+      // Configuraciones adicionales (evitan overflows horizontales)
       anchorPlacement: 'top-bottom',
       mirror: false,
 
@@ -96,7 +96,7 @@ export function AOSProvider() {
     });
 
     // Función para refrescar AOS cuando cambie el contenido
-    const refreshAOS = () => {
+    function refreshAOS() {
       AOS.refresh();
     };
 
@@ -130,7 +130,7 @@ export default function App({ children }: { children: React.ReactNode }) {
 
 ---
 
-## ⚙️ Configuración Optimizada
+## Configuración Optimizada
 
 ### Configuración para Diferentes Entornos
 
@@ -219,15 +219,15 @@ export function AOSProvider() {
 
 ---
 
-## 🎬 Tipos de Animaciones
+## Tipos de Animaciones
 
 ### Fade (Desvanecimiento)
 ```tsx
 <div data-aos="fade">Fade simple</div>
 <div data-aos="fade-up">Fade hacia arriba</div>
 <div data-aos="fade-down">Fade hacia abajo</div>
-<div data-aos="fade-left">Fade desde izquierda ⚠️ Puede causar overflow</div>
-<div data-aos="fade-right">Fade desde derecha ⚠️ Puede causar overflow</div>
+<div data-aos="fade-left">Fade desde izquierda (puede causar overflow)</div>
+<div data-aos="fade-right">Fade desde derecha (puede causar overflow)</div>
 ```
 
 ### Zoom (Acercamiento)
@@ -244,8 +244,8 @@ export function AOSProvider() {
 ```tsx
 <div data-aos="slide-up">Slide hacia arriba</div>
 <div data-aos="slide-down">Slide hacia abajo</div>
-<div data-aos="slide-left">Slide desde izquierda ⚠️ Puede causar overflow</div>
-<div data-aos="slide-right">Slide desde derecha ⚠️ Puede causar overflow</div>
+<div data-aos="slide-left">Slide desde izquierda (puede causar overflow)</div>
+<div data-aos="slide-right">Slide desde derecha (puede causar overflow)</div>
 ```
 
 ### Flip (Volteo)
@@ -258,7 +258,7 @@ export function AOSProvider() {
 
 ---
 
-## 🏷️ Atributos y Propiedades
+## Atributos y Propiedades
 
 ### Atributos Principales
 | Atributo | Tipo | Descripción | Valores Ejemplo |
@@ -292,7 +292,7 @@ export function AOSProvider() {
 
 ---
 
-## 🎣 Hooks y Utilidades Personalizadas
+## Hooks y Utilidades Personalizadas
 
 ### Hook para Animaciones Condicionales
 ```tsx
@@ -416,7 +416,7 @@ export function getResponsiveDuration(
 
 ---
 
-## 💡 Ejemplos Prácticos
+## Ejemplos Prácticos
 
 ### Ejemplo 1: Cards de Servicios con Animación Alternada
 ```tsx
@@ -735,7 +735,7 @@ export function ContactForm() {
             data-aos="zoom-in"
             className="text-center py-12"
           >
-            <div className="text-6xl mb-4">✅</div>
+            <div className="text-6xl mb-4">Hecho</div>
             <h3 className="text-2xl font-bold mb-2">¡Mensaje Enviado!</h3>
             <p className="text-gray-600">Gracias por contactarnos. Te responderemos pronto.</p>
           </div>
@@ -748,7 +748,7 @@ export function ContactForm() {
 
 ---
 
-## 🚨 Problemas Comunes y Soluciones
+## Problemas Comunes y Soluciones
 
 ### 1. Espacio en Blanco Horizontal (Overflow)
 
@@ -895,7 +895,7 @@ function AnimatedComponent() {
 
 ---
 
-## ✨ Mejores Prácticas
+## Mejores Prácticas
 
 ### 1. Estructura del Proyecto
 ```
@@ -1004,7 +1004,7 @@ describe('AnimatedCard', () => {
 
 ---
 
-## ⚡ Optimización de Rendimiento
+## Optimización de Rendimiento
 
 ### 1. Lazy Loading de Animaciones
 ```tsx
@@ -1100,7 +1100,7 @@ function VirtualizedAnimatedList({ items }: { items: any[] }) {
 
 ---
 
-## 🐛 Testing y Debugging
+## Testing y Debugging
 
 ### 1. Debugging de AOS
 ```tsx
@@ -1198,7 +1198,7 @@ describe('AOS Integration', () => {
 
 ---
 
-## 📚 Recursos y Referencias
+## Recursos y Referencias
 
 ### Documentación Oficial
 - [AOS GitHub](https://github.com/michalsnik/aos)
@@ -1221,7 +1221,7 @@ describe('AOS Integration', () => {
 
 ---
 
-## 📋 Checklist de Implementación
+## Checklist de Implementación
 
 ### Antes de Implementar
 - [ ] ¿El proyecto necesita animaciones de scroll?

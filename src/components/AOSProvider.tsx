@@ -14,19 +14,29 @@ import 'aos/dist/aos.css';
  */
 export function AOSProvider() {
   useEffect(() => {
-    AOS.init({
-      duration: 600,
-      easing: 'ease-out',
-      once: true,
-      offset: 50,
-      disable: false,
-      startEvent: 'DOMContentLoaded',
-      disableMutationObserver: false,
-      throttleDelay: 99,
-      // Configuraciones adicionales para prevenir overflow
-      anchorPlacement: 'top-bottom',
-      mirror: false, // Deshabilitar animaciones espejo
-    });
+    // Pequeño delay para asegurar que el DOM esté completamente cargado
+    const initAOS = () => {
+      AOS.init({
+        duration: 600,
+        easing: 'ease-out',
+        once: true,
+        offset: 50,
+        disable: false,
+        startEvent: 'DOMContentLoaded',
+        disableMutationObserver: false,
+        throttleDelay: 99,
+        // Configuraciones adicionales para prevenir overflow
+        anchorPlacement: 'top-bottom',
+        mirror: false, // Deshabilitar animaciones espejo
+        // Configuraciones para producción
+        useClassNames: true,
+        initClassName: 'aos-init',
+        animatedClassName: 'aos-animate',
+      });
+    };
+
+    // Inicializar AOS después de un pequeño delay
+    const timer = setTimeout(initAOS, 100);
 
     // Función para refrescar AOS cuando cambie el contenido
     function refreshAOS() {
@@ -37,6 +47,7 @@ export function AOSProvider() {
     window.addEventListener('resize', refreshAOS);
 
     return () => {
+      clearTimeout(timer);
       window.removeEventListener('resize', refreshAOS);
     };
   }, []);

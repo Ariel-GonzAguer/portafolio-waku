@@ -1,7 +1,7 @@
 'use client';
 
 // componentes
-import { AOSProvider } from './AOSProvider';
+// import { AOSProvider } from './AOSProvider';
 // data
 import { proyectos } from '../data/proyectos';
 // hooks
@@ -12,7 +12,6 @@ export default function Proyectos() {
 
   return (
     <section className="my-20 aos-container" title='proyectos'>
-      <AOSProvider />
       <h2 className="text-center text-3xl" data-aos="zoom-in">
         Algunos de los proyectos realizados este año
       </h2>
