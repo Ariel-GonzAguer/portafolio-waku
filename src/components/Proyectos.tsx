@@ -11,7 +11,7 @@ export default function Proyectos() {
   const isMobile = useIsMobile();
 
   return (
-    <section className="mb-20">
+    <section className="mb-20 overflow-x-hidden" title='proyectos'>
       <AOSProvider />
       <h2 className="text-center text-3xl" data-aos="zoom-in">
         Algunos de los proyectos realizados este año
@@ -19,10 +19,14 @@ export default function Proyectos() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-8">
         {proyectos.map(proyecto => (
           <article
-            data-aos={`fade-${Number(proyecto.id) % 2 === 0 ? 'right' : 'left'}`}
+            data-aos={`
+              ${isMobile
+                ? `zoom-in-${Number(proyecto.id) % 2 === 0 ? 'right' : 'left'}`
+                : `fade-${Number(proyecto.id) % 2 === 0 ? 'right' : 'left'}`}
+              `}
             data-aos-delay={`${isMobile ? 0 : Number(proyecto.id) * 200}`}
             key={proyecto.id}
-            className="p-4"
+            className="p-4 relative"
           >
             <img
               src={Array.isArray(proyecto.img) ? proyecto.img[0] : proyecto.img}
@@ -38,7 +42,7 @@ export default function Proyectos() {
               target="_blank"
               rel="noopener noreferrer"
               title={proyecto.nombre}
-              className="absolute right-4 bg-doradoSK text-black px-4 py-2 rounded hover:bg-gatorojo transition"
+              className="bg-doradoSK text-black px-4 py-2 rounded hover:bg-gatorojo transition inline-block"
             >
               Ver Proyecto
             </a>

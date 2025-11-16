@@ -11,7 +11,7 @@ export default function Servicios() {
   const isMobile = useIsMobile();
 
   return (
-    <section>
+    <section className="mb-20" title='servicios'>
       <AOSProvider />
       <h2 className="text-center text-4xl font-bold mb-10">Servicios</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">

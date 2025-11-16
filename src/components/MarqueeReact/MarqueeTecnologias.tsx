@@ -74,7 +74,7 @@ export default function MarqueeTecnologias({
   }
 
   return (
-    <section className={`marquee-section ${className}`}>
+    <section className={`marquee-section ${className}`} title="marquee de tecnologías">
       <h3>{title}</h3>
       <div className="marquee-container">
         <div

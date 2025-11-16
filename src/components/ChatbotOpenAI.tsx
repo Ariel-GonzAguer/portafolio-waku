@@ -118,7 +118,7 @@ export default function ChatbotOpenAI() {
   /**
    * Envía un mensaje al chatbot
    */
-  const handleSubmit = async (e: React.FormEvent) => {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
     if (!input.trim() || isLoading) return;
@@ -224,7 +224,7 @@ export default function ChatbotOpenAI() {
   /**
    * Limpia la conversación
    */
-  const handleClear = () => {
+  function handleClear() {
     setMessages([]);
     setError(null);
   };
