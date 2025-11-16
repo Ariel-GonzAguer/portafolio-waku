@@ -132,47 +132,59 @@ async function getBusinessData(): Promise<any> {
       hours: 'martes a sábado: 10am a 4pm, domingo y lunes: cerrado.',
       servicios: [
       {
-        name: 'Desarrollo de Aplicaciones Web JAM Stack',
-        description:
-        'Creación de aplicaciones web modernas utilizando TypeScript, APIs y Markup. Desarrollo de soluciones escalables con React+Vite, Waku o Astro, optimizadas para rendimiento y SEO.',
+      name: 'Desarrollo de Aplicaciones Web JAM Stack',
+      description:
+      'Creación de aplicaciones web modernas utilizando TypeScript, APIs y Markup. Desarrollo de soluciones escalables con React+Vite, Waku o Astro, optimizadas para rendimiento y SEO.',
       },
       {
-        name: 'Investigación Experiencias (UX Research)',
-        description:
-        'Investigación profunda para entender necesidades de las personas usuarias. Incluye entrevistas, encuestas, análisis de comportamiento y pruebas de usabilidad para informar decisiones de diseño.',
+      name: 'Investigación Experiencias (UX Research)',
+      description:
+      'Investigación profunda para entender necesidades de las personas usuarias. Incluye entrevistas, encuestas, análisis de comportamiento y pruebas de usabilidad para informar decisiones de diseño.',
       },
       {
-        name: 'Integración de componentes con IA',
-        description:
-        'Incorporación de funcionalidades impulsadas por inteligencia artificial en aplicaciones web. Implementación de chatbots y generación de contenido.',
+      name: 'Integración de componentes con IA',
+      description:
+      'Incorporación de funcionalidades impulsadas por inteligencia artificial en aplicaciones web. Implementación de chatbots y generación de contenido.',
       },
       {
-        name: 'Diseño de Interfaces de Usuario (UI/UX)',
-        description:
-        'Creación de diseños intuitivos y atractivos centrados en la experiencia del usuario. Utilizando herramientas como Figma para prototipos interactivos y wireframes.',
+      name: 'Diseño de Interfaces de Usuario (UI/UX)',
+      description:
+      'Creación de diseños intuitivos y atractivos centrados en la experiencia del usuario. Utilizando herramientas como Figma para prototipos interactivos y wireframes.',
       },
       {
-        name: 'Auditoría de Accesibilidad Web',
-        description:
-        'Evaluación y mejora de la accesibilidad en sitios web para cumplir con estándares WCAG. Asegurando que las aplicaciones sean usables por personas con discapacidades.',
+      name: 'Auditoría de Accesibilidad Web',
+      description:
+      'Evaluación y mejora de la accesibilidad en sitios web para cumplir con estándares WCAG. Asegurando que las aplicaciones sean usables por personas con discapacidades.',
       },
       {
-        name: 'Consultoría en Tecnologías Web',
-        description:
-        'Asesoramiento experto en selección de tecnologías, arquitectura de proyectos y mejores prácticas para desarrollo web moderno y sostenible.',
+      name: 'Consultoría en Tecnologías Web',
+      description:
+      'Asesoramiento experto en selección de tecnologías, arquitectura de proyectos y mejores prácticas para desarrollo web moderno y sostenible.',
       },
       ],
       whatsapp: '506 63685484',
       email: 'ariegonzaguer@gmail.com',
       faq: {
       '¿Qué es JAMstack?':
-        'JAMstack es una arquitectura web moderna que separa el frontend del backend, utilizando JavaScript, APIs y Markup para crear sitios rápidos y seguros.',
+      'JAMstack es una arquitectura web moderna que separa el frontend del backend, utilizando JavaScript, APIs y Markup para crear sitios rápidos y seguros.',
       '¿Por qué es importante la accesibilidad web?':
-        'La accesibilidad web asegura que todas las personas, incluidas aquellas con discapacidades, puedan acceder y utilizar sitios web de manera efectiva.',
+      'La accesibilidad web asegura que todas las personas, incluidas aquellas con discapacidades, puedan acceder y utilizar sitios web de manera efectiva.',
       '¿Qué tecnologías utilizan?':
-        'Utilizamos tecnologías como React, Vite, Astro, TypeScript y diversas APIs para construir aplicaciones web modernas y eficientes.',
+      'Utilizamos tecnologías como React, Vite, Astro, TypeScript y diversas APIs para construir aplicaciones web modernas y eficientes.',
       '¿Ofrecen soporte post-lanzamiento?':
-        'Sí, ofrecemos servicios de mantenimiento y soporte para asegurar que su aplicación web funcione sin problemas después del lanzamiento.',
+      'Sí, ofrecemos servicios de mantenimiento y soporte para asegurar que su aplicación web funcione sin problemas después del lanzamiento.',
+      '¿Cómo puedo contactarlos?':
+      'Puedes contactarnos a través de WhatsApp al 506 63685484 o por correo electrónico a ariegonzaguer@gmail.com.',
+      '¿Cuánto tiempo toma un proyecto típico?':
+      'El tiempo varía según la complejidad, pero un proyecto web básico puede tomar de 2 a 4 semanas, mientras que proyectos más complejos pueden extenderse a varios meses.',
+      '¿Trabajan con clientes internacionales?':
+      'Sí, trabajamos con clientes de todo el mundo, utilizando herramientas de comunicación remota como Zoom y Slack para mantener una colaboración efectiva.',
+      '¿Qué incluye el precio de un servicio?':
+      'El precio incluye el desarrollo completo, pruebas, documentación y soporte inicial. Los costos adicionales pueden aplicarse para mantenimiento continuo o cambios posteriores.',
+      '¿Qué es la investigación UX?':
+      'La investigación UX implica estudiar el comportamiento de los usuarios para mejorar la experiencia. Incluye métodos como entrevistas, encuestas y pruebas de usabilidad.',
+      '¿Cómo se asegura la accesibilidad en los proyectos?':
+      'Utilizamos estándares WCAG, realizamos auditorías automáticas y manuales, y probamos con herramientas de asistencia para garantizar que los sitios sean accesibles para todos.',
       },
     };
   } catch (error) {
@@ -224,6 +236,7 @@ function createSystemPrompt(businessData: any): string {
     - Usa tono conversacional y cercano
     - Si el usuario te saluda, responde amablemente y ofrece ayuda
     - Si alguiente dice que quiere adquirir un servicio, indicale que puede escribir al correo de soporte para más detalles
+    - Si alguien pregunta por el precio de un servicio, indícale que los precios varían según el proyecto y que puede escribir al correo de soporte para más detalles
   `.trim();
 }
 
