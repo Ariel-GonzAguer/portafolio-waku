@@ -128,36 +128,51 @@ async function getBusinessData(): Promise<any> {
     return {
       name: 'Gato Rojo Lab - Desarrollo JAMstack, accesibilidad y ',
       description:
-        'Soluciones centradas en la Persona Usuaria. Accesibilidad, minimalismo y creatividad. Desarrollo JAM Stack tipado, testeado, limpio, con backend serverless',
+      'Soluciones centradas en la Persona Usuaria. Accesibilidad, minimalismo y creatividad. Desarrollo JAM Stack tipado, testeado, limpio, con backend serverless',
       hours: 'martes a sábado: 10am a 4pm, domingo y lunes: cerrado.',
       servicios: [
-        {
-          name: 'Desarrollo de Aplicaciones Web JAM Stack',
-          description:
-            'Creación de aplicaciones web modernas utilizando TypeScript, APIs y Markup. Desarrollo de soluciones escalables con React+Vite, Waku o Astro, optimizadas para rendimiento y SEO.',
-        },
-        {
-          name: 'Investigación Experiencias (UX Research)',
-          description:
-            'Investigación profunda para entender necesidades de las personas usuarias. Incluye entrevistas, encuestas, análisis de comportamiento y pruebas de usabilidad para informar decisiones de diseño.',
-        },
-        {
-          name: 'Integración de componentes con IA',
-          description:
-            'Incorporación de funcionalidades impulsadas por inteligencia artificial en aplicaciones web. Implementación de chatbots y generación de contenido.',
-        },
+      {
+        name: 'Desarrollo de Aplicaciones Web JAM Stack',
+        description:
+        'Creación de aplicaciones web modernas utilizando TypeScript, APIs y Markup. Desarrollo de soluciones escalables con React+Vite, Waku o Astro, optimizadas para rendimiento y SEO.',
+      },
+      {
+        name: 'Investigación Experiencias (UX Research)',
+        description:
+        'Investigación profunda para entender necesidades de las personas usuarias. Incluye entrevistas, encuestas, análisis de comportamiento y pruebas de usabilidad para informar decisiones de diseño.',
+      },
+      {
+        name: 'Integración de componentes con IA',
+        description:
+        'Incorporación de funcionalidades impulsadas por inteligencia artificial en aplicaciones web. Implementación de chatbots y generación de contenido.',
+      },
+      {
+        name: 'Diseño de Interfaces de Usuario (UI/UX)',
+        description:
+        'Creación de diseños intuitivos y atractivos centrados en la experiencia del usuario. Utilizando herramientas como Figma para prototipos interactivos y wireframes.',
+      },
+      {
+        name: 'Auditoría de Accesibilidad Web',
+        description:
+        'Evaluación y mejora de la accesibilidad en sitios web para cumplir con estándares WCAG. Asegurando que las aplicaciones sean usables por personas con discapacidades.',
+      },
+      {
+        name: 'Consultoría en Tecnologías Web',
+        description:
+        'Asesoramiento experto en selección de tecnologías, arquitectura de proyectos y mejores prácticas para desarrollo web moderno y sostenible.',
+      },
       ],
       whatsapp: '506 63685484',
       email: 'ariegonzaguer@gmail.com',
       faq: {
-        '¿Qué es JAMstack?':
-          'JAMstack es una arquitectura web moderna que separa el frontend del backend, utilizando JavaScript, APIs y Markup para crear sitios rápidos y seguros.',
-        '¿Por qué es importante la accesibilidad web?':
-          'La accesibilidad web asegura que todas las personas, incluidas aquellas con discapacidades, puedan acceder y utilizar sitios web de manera efectiva.',
-        '¿Qué tecnologías utilizan?':
-          'Utilizamos tecnologías como React, Vite, Astro, TypeScript y diversas APIs para construir aplicaciones web modernas y eficientes.',
-        '¿Ofrecen soporte post-lanzamiento?':
-          'Sí, ofrecemos servicios de mantenimiento y soporte para asegurar que su aplicación web funcione sin problemas después del lanzamiento.',
+      '¿Qué es JAMstack?':
+        'JAMstack es una arquitectura web moderna que separa el frontend del backend, utilizando JavaScript, APIs y Markup para crear sitios rápidos y seguros.',
+      '¿Por qué es importante la accesibilidad web?':
+        'La accesibilidad web asegura que todas las personas, incluidas aquellas con discapacidades, puedan acceder y utilizar sitios web de manera efectiva.',
+      '¿Qué tecnologías utilizan?':
+        'Utilizamos tecnologías como React, Vite, Astro, TypeScript y diversas APIs para construir aplicaciones web modernas y eficientes.',
+      '¿Ofrecen soporte post-lanzamiento?':
+        'Sí, ofrecemos servicios de mantenimiento y soporte para asegurar que su aplicación web funcione sin problemas después del lanzamiento.',
       },
     };
   } catch (error) {

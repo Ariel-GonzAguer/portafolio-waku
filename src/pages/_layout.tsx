@@ -20,8 +20,14 @@ export default async function HomeLayout({ children }: HomeLayoutProps) {
         name="description"
         content="GatoRojoLab — Diseño UX, Desarrollo JAMstack, Accesibilidad e Investigación."
       />
+      <meta
+        name="keywords"
+        content="Desarrollo web, JAMstack, React, TypeScript, UX Research, Diseño UX, Accesibilidad web, WCAG, Frontend, Waku, Astro, Vite, Costa Rica, Desarrollo accesible, Investigación de usuarios, gatos, cats"
+      />
+      <meta name="author" content="Gato Rojo Lab" />
+      <meta name="publisher" content="Gato Rojo Lab" />
       <meta name="robots" content="index, follow" />
-      <link rel="canonical" href="https://portafolio-waku.vercel.app/" />
+      <link rel="canonical" href="https://gatorojolab.com/" />
       <title> GatoRojoLab </title>
 
       {/* Open Graph / Twitter */}
@@ -37,6 +43,7 @@ export default async function HomeLayout({ children }: HomeLayoutProps) {
       />
       <meta property="og:image" content="/imagenes/soloGato.png" title="favicon Gato Rojo Lab" />
       <meta name="twitter:card" content="summary_large_image" />
+      <meta name="publisher" content="GatoRojoLab" />
       <meta name="theme-color" content="#0f172a" />
 
       {/* JSON-LD básico de persona/organización (archivo estático para evitar inline scripts) */}
