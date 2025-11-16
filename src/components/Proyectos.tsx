@@ -18,7 +18,7 @@ export default function Proyectos() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-8">
         {proyectos.map(proyecto => (
           <article
-            data-aos={isMobile ? `zoom-in-${Number(proyecto.id) % 2 === 0 ? 'right' : 'left'}` : 'fade-up'}
+            data-aos={isMobile ? 'fade-up' :  `zoom-in-${Number(proyecto.id) % 2 === 0 ? 'right' : 'left'}`}
             data-aos-delay={isMobile ? 0 : Number(proyecto.id) * 200}
             key={proyecto.id}
             className="p-4"
