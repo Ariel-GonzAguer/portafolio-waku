@@ -12,8 +12,7 @@ export const proyectos = [
   {
     id: '1',
     nombre: 'Porto Burger',
-    descripcion:
-      'Sitio web para un negocio de hamburguesas veganas, con menú y pedidos en línea.',
+    descripcion: 'Sitio web para un negocio de hamburguesas veganas, con menú y pedidos en línea.',
     tecnologias: ['React', 'CSS', 'Sonner', 'Zustand'],
     enlace: 'https://portoburger.netlify.app/',
     tags: ['comida', 'compras en línea', 'hamburguesas', 'Netlify'],
@@ -22,8 +21,7 @@ export const proyectos = [
   {
     id: '2',
     nombre: 'Shuttle 506 Jaco',
-    descripcion:
-      'Sitio web diseñado para un negocio de transporte privado en Costa Rica.',
+    descripcion: 'Sitio web diseñado para un negocio de transporte privado en Costa Rica.',
     tecnologias: ['Astro', 'EmailJS', 'QRCode', 'Wouter'],
     enlace: 'https://shuttle506jaco.com/',
     tags: ['sitio web', 'SEO', 'transporte', 'Costa Rica'],

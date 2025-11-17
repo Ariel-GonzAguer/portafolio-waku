@@ -31,17 +31,20 @@ Documentación completa para integrar chatbots con OpenAI o Google Gemini en pro
 ### ✅ Cuentas Requeridas
 
 #### **Para OpenAI**
+
 1. Crea cuenta en [platform.openai.com](https://platform.openai.com/signup)
 2. Añade método de pago (tarjeta de crédito)
 3. Genera API key en [API Keys](https://platform.openai.com/api-keys)
 4. **Configura límites de gasto** en Settings > Billing
 
 #### **Para Gemini**
+
 1. Crea cuenta Google
 2. Ve a [Google AI Studio](https://aistudio.google.com/app/apikey)
 3. Genera API key (gratis hasta 15 req/min)
 
 #### **Para Firestore (Opcional)**
+
 1. Crea proyecto en [Firebase Console](https://console.firebase.google.com/)
 2. Habilita Firestore Database
 3. Descarga credenciales de servicio (JSON)
@@ -286,7 +289,7 @@ export default function HomePage() {
     <div>
       <h1>Bienvenido</h1>
       {/* Tu contenido */}
-      
+
       {/* Chatbot flotante */}
       <ChatbotOpenAI />
     </div>
@@ -307,7 +310,7 @@ export default function HomePage() {
     <div>
       <h1>Bienvenido</h1>
       {/* Tu contenido */}
-      
+
       {/* Chatbot flotante */}
       <ChatbotGemini />
     </div>
@@ -331,19 +334,19 @@ export default function HomePage() {
   return (
     <div>
       <h1>Bienvenido</h1>
-      
+
       {/* Selector */}
       <div className="fixed top-4 right-4 z-50">
         <select
           value={provider}
-          onChange={(e) => setProvider(e.target.value as 'openai' | 'gemini')}
+          onChange={e => setProvider(e.target.value as 'openai' | 'gemini')}
           className="px-4 py-2 rounded border"
         >
           <option value="openai">OpenAI (GPT-4)</option>
           <option value="gemini">Gemini 1.5</option>
         </select>
       </div>
-      
+
       {/* Chatbot */}
       {provider === 'openai' ? <ChatbotOpenAI /> : <ChatbotGemini />}
     </div>
@@ -421,12 +424,12 @@ import { db } from '../../lib/firestore';
 async function getBusinessData(): Promise<any> {
   try {
     const doc = await db.collection('businessInfo').doc('general').get();
-    
+
     if (!doc.exists) {
       console.warn('[Chatbot] No se encontró información del negocio');
       return null;
     }
-    
+
     return doc.data();
   } catch (error) {
     console.error('[Chatbot] Error obteniendo datos:', error);
@@ -460,13 +463,13 @@ const MAX_REQUESTS = 10;
 
 const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
-  
+
   if (requestCount >= MAX_REQUESTS) {
     setError('Has excedido el límite de consultas. Espera un momento.');
     return;
   }
-  
-  setRequestCount((prev) => prev + 1);
+
+  setRequestCount(prev => prev + 1);
   // ... resto del código
 };
 ```
@@ -498,7 +501,7 @@ Añade validación al inicio de las APIs:
 export async function POST(request: Request): Promise<Response> {
   // Validar API key
   const apiKey = process.env.OPENAI_API_KEY || process.env.GEMINI_API_KEY;
-  
+
   if (!apiKey || apiKey === 'sk-proj-xxxxxx') {
     return new Response(
       JSON.stringify({
@@ -507,10 +510,10 @@ export async function POST(request: Request): Promise<Response> {
       {
         status: 500,
         headers: { 'Content-Type': 'application/json' },
-      }
+      },
     );
   }
-  
+
   // ... resto del código
 }
 ```
@@ -530,10 +533,12 @@ interface LogEntry {
 }
 
 function log(entry: LogEntry) {
-  console.log(JSON.stringify({
-    ...entry,
-    timestamp: new Date().toISOString(),
-  }));
+  console.log(
+    JSON.stringify({
+      ...entry,
+      timestamp: new Date().toISOString(),
+    }),
+  );
 }
 
 // Uso
@@ -644,11 +649,13 @@ firebase deploy
 ### ❌ Error: "API key inválida"
 
 **Síntomas:**
+
 ```
 Error 401: Incorrect API key provided
 ```
 
 **Soluciones:**
+
 1. Verifica que la API key en `.env.local` sea correcta
 2. No debe tener espacios ni comillas extra
 3. En producción, verifica las env vars en Vercel/Netlify
@@ -657,11 +664,13 @@ Error 401: Incorrect API key provided
 ### ❌ Error: "Rate limit exceeded"
 
 **Síntomas:**
+
 ```
 Error 429: Rate limit reached
 ```
 
 **Soluciones:**
+
 1. **OpenAI**: Espera 1 minuto o upgradea tu tier
 2. **Gemini**: Límite gratuito es 15 req/min
 3. Implementa caché para preguntas frecuentes
@@ -670,11 +679,13 @@ Error 429: Rate limit reached
 ### ❌ Error: "Cannot find module 'openai'"
 
 **Síntomas:**
+
 ```
 Error: Cannot find module 'openai'
 ```
 
 **Soluciones:**
+
 ```bash
 # Reinstalar dependencias
 pnpm install
@@ -686,11 +697,13 @@ pnpm add openai
 ### ❌ Chatbot no aparece
 
 **Posibles causas:**
+
 1. Componente no marcado como `'use client'`
 2. Conflicto de z-index con otros elementos
 3. Error en la consola del navegador
 
 **Soluciones:**
+
 1. Verifica que el componente tenga `'use client'` al inicio
 2. Aumenta el z-index: `z-50` → `z-[9999]`
 3. Abre DevTools (F12) y revisa la consola
@@ -698,10 +711,12 @@ pnpm add openai
 ### ❌ Streaming no funciona
 
 **Síntomas:**
+
 - Respuesta completa aparece de golpe
 - No hay efecto de "escribiendo"
 
 **Soluciones:**
+
 1. Verifica que el endpoint retorne `Content-Type: text/event-stream`
 2. Asegúrate de usar `stream: true` en OpenAI
 3. Verifica que `sendMessageStream()` se use en Gemini
@@ -709,11 +724,13 @@ pnpm add openai
 ### ❌ Firestore connection failed
 
 **Síntomas:**
+
 ```
 Error: Could not load the default credentials
 ```
 
 **Soluciones:**
+
 1. Verifica que `GOOGLE_APPLICATION_CREDENTIALS` apunte al JSON correcto
 2. El archivo JSON debe estar en la raíz del proyecto
 3. En producción, usa variables individuales (PROJECT_ID, PRIVATE_KEY, etc.)
@@ -721,12 +738,14 @@ Error: Could not load the default credentials
 ### ❌ CSP bloquea el chatbot
 
 **Síntomas:**
+
 ```
 Refused to execute inline script
 ```
 
 **Soluciones:**
 Añade a tu CSP (en `vercel.json` o headers):
+
 ```json
 {
   "headers": {
@@ -740,15 +759,18 @@ Añade a tu CSP (en `vercel.json` o headers):
 ## 📚 Recursos Adicionales
 
 ### Documentación Oficial
+
 - [OpenAI API Docs](https://platform.openai.com/docs)
 - [Gemini API Docs](https://ai.google.dev/gemini-api/docs)
 - [Firebase Admin SDK](https://firebase.google.com/docs/admin/setup)
 
 ### Tutoriales
+
 - [Streaming con OpenAI](https://platform.openai.com/docs/guides/chat/streaming)
 - [Gemini Quickstart](https://ai.google.dev/gemini-api/docs/get-started/tutorial)
 
 ### Comunidad
+
 - [OpenAI Community](https://community.openai.com/)
 - [r/OpenAI](https://reddit.com/r/OpenAI)
 - [Google AI Discord](https://discord.gg/google-ai)

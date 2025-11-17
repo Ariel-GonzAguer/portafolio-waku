@@ -22,6 +22,7 @@
 **AOS (Animate On Scroll)** es una biblioteca ligera y potente para crear animaciones de scroll en aplicaciones web. Perfecta para mejorar la experiencia de usuario con animaciones suaves y atractivas.
 
 ### Características Principales
+
 - **Ligero**: Solo ~3KB gzipped
 - **Alto rendimiento**: Optimizado con GPU
 - **Responsive**: Funciona en todos los dispositivos
@@ -30,6 +31,7 @@
 - **Accesible**: Respeta las preferencias de reducción de movimiento
 
 ### Casos de Uso Ideales
+
 - Animaciones de entrada en secciones
 - Cards que aparecen al hacer scroll
 - Elementos que se revelan progresivamente
@@ -41,6 +43,7 @@
 ## Instalación y Configuración
 
 ### Instalación
+
 ```bash
 # Con pnpm (recomendado)
 pnpm add aos
@@ -56,6 +59,7 @@ yarn add -D @types/aos
 ```
 
 ### Configuración Básica
+
 ```tsx
 // src/components/AOSProvider.tsx
 'use client';
@@ -98,7 +102,7 @@ export function AOSProvider() {
     // Función para refrescar AOS cuando cambie el contenido
     function refreshAOS() {
       AOS.refresh();
-    };
+    }
 
     // Escuchar cambios de tamaño de ventana
     window.addEventListener('resize', refreshAOS);
@@ -114,6 +118,7 @@ export function AOSProvider() {
 ```
 
 ### Integración en la App
+
 ```tsx
 // src/App.tsx o src/_app.tsx
 import { AOSProvider } from './components/AOSProvider';
@@ -164,6 +169,7 @@ export type AOSConfig = typeof AOS_CONFIG.development;
 ```
 
 ### Provider Inteligente
+
 ```tsx
 // src/components/AOSProvider.tsx
 'use client';
@@ -222,6 +228,7 @@ export function AOSProvider() {
 ## Tipos de Animaciones
 
 ### Fade (Desvanecimiento)
+
 ```tsx
 <div data-aos="fade">Fade simple</div>
 <div data-aos="fade-up">Fade hacia arriba</div>
@@ -231,6 +238,7 @@ export function AOSProvider() {
 ```
 
 ### Zoom (Acercamiento)
+
 ```tsx
 <div data-aos="zoom-in">Zoom in</div>
 <div data-aos="zoom-in-up">Zoom in desde arriba</div>
@@ -241,6 +249,7 @@ export function AOSProvider() {
 ```
 
 ### Slide (Deslizamiento)
+
 ```tsx
 <div data-aos="slide-up">Slide hacia arriba</div>
 <div data-aos="slide-down">Slide hacia abajo</div>
@@ -249,6 +258,7 @@ export function AOSProvider() {
 ```
 
 ### Flip (Volteo)
+
 ```tsx
 <div data-aos="flip-up">Flip hacia arriba</div>
 <div data-aos="flip-down">Flip hacia abajo</div>
@@ -261,33 +271,35 @@ export function AOSProvider() {
 ## Atributos y Propiedades
 
 ### Atributos Principales
-| Atributo | Tipo | Descripción | Valores Ejemplo |
-|----------|------|-------------|-----------------|
-| `data-aos` | string | Tipo de animación | `"fade-up"`, `"zoom-in"` |
-| `data-aos-duration` | number | Duración en ms | `600`, `1000`, `1500` |
-| `data-aos-delay` | number | Retraso en ms | `0`, `200`, `500` |
-| `data-aos-easing` | string | Función de easing | `"ease"`, `"ease-in-out"` |
-| `data-aos-offset` | number | Offset del trigger | `50`, `120`, `200` |
-| `data-aos-once` | boolean | Animar solo una vez | `"true"`, `"false"` |
-| `data-aos-anchor` | string | Selector de ancla | `"#elemento"`, `".clase"` |
-| `data-aos-anchor-placement` | string | Posición del ancla | `"top-center"`, `"bottom-bottom"` |
+
+| Atributo                    | Tipo    | Descripción         | Valores Ejemplo                   |
+| --------------------------- | ------- | ------------------- | --------------------------------- |
+| `data-aos`                  | string  | Tipo de animación   | `"fade-up"`, `"zoom-in"`          |
+| `data-aos-duration`         | number  | Duración en ms      | `600`, `1000`, `1500`             |
+| `data-aos-delay`            | number  | Retraso en ms       | `0`, `200`, `500`                 |
+| `data-aos-easing`           | string  | Función de easing   | `"ease"`, `"ease-in-out"`         |
+| `data-aos-offset`           | number  | Offset del trigger  | `50`, `120`, `200`                |
+| `data-aos-once`             | boolean | Animar solo una vez | `"true"`, `"false"`               |
+| `data-aos-anchor`           | string  | Selector de ancla   | `"#elemento"`, `".clase"`         |
+| `data-aos-anchor-placement` | string  | Posición del ancla  | `"top-center"`, `"bottom-bottom"` |
 
 ### Funciones de Easing
+
 ```tsx
 // Lineal
-'ease-linear'
+'ease-linear';
 
 // Suave
-'ease-in' | 'ease-out' | 'ease-in-out'
+'ease-in' | 'ease-out' | 'ease-in-out';
 
 // Seno
-'ease-in-sine' | 'ease-out-sine' | 'ease-in-out-sine'
+'ease-in-sine' | 'ease-out-sine' | 'ease-in-out-sine';
 
 // Cuadrática
-'ease-in-quad' | 'ease-out-quad' | 'ease-in-out-quad'
+'ease-in-quad' | 'ease-out-quad' | 'ease-in-out-quad';
 
 // Cúbica
-'ease-in-cubic' | 'ease-out-cubic' | 'ease-in-out-cubic'
+'ease-in-cubic' | 'ease-out-cubic' | 'ease-in-out-cubic';
 ```
 
 ---
@@ -295,6 +307,7 @@ export function AOSProvider() {
 ## Hooks y Utilidades Personalizadas
 
 ### Hook para Animaciones Condicionales
+
 ```tsx
 // src/hooks/useAOS.ts
 import { useEffect, useRef } from 'react';
@@ -347,6 +360,7 @@ export function useAOS(options: UseAOSOptions = {}) {
 ```
 
 ### Hook para Animaciones Secuenciales
+
 ```tsx
 // src/hooks/useSequentialAOS.ts
 import { useEffect, useRef } from 'react';
@@ -358,9 +372,7 @@ interface SequentialAOSOptions {
   disabled?: boolean;
 }
 
-export function useSequentialAOS(
-  options: SequentialAOSOptions = {}
-) {
+export function useSequentialAOS(options: SequentialAOSOptions = {}) {
   const containerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -385,29 +397,27 @@ export function useSequentialAOS(
 ```
 
 ### Utilidad para Animaciones Responsive
+
 ```tsx
 // src/utils/aos.utils.ts
 import { useIsMobile } from './hooks/useIsMobile';
 
 export function getResponsiveAnimation(
   desktopAnimation: string,
-  mobileAnimation: string = 'fade-up'
+  mobileAnimation: string = 'fade-up',
 ): string {
   const isMobile = useIsMobile();
   return isMobile ? mobileAnimation : desktopAnimation;
 }
 
-export function getResponsiveDelay(
-  desktopDelay: number,
-  mobileDelay: number = 0
-): number {
+export function getResponsiveDelay(desktopDelay: number, mobileDelay: number = 0): number {
   const isMobile = useIsMobile();
   return isMobile ? mobileDelay : desktopDelay;
 }
 
 export function getResponsiveDuration(
   desktopDuration: number = 1000,
-  mobileDuration: number = 600
+  mobileDuration: number = 600,
 ): number {
   const isMobile = useIsMobile();
   return isMobile ? mobileDuration : desktopDuration;
@@ -419,6 +429,7 @@ export function getResponsiveDuration(
 ## Ejemplos Prácticos
 
 ### Ejemplo 1: Cards de Servicios con Animación Alternada
+
 ```tsx
 // src/components/Servicios.tsx
 'use client';
@@ -456,7 +467,7 @@ export function Servicios({ servicios }: ServiciosProps) {
             key={servicio.id}
             data-aos={getResponsiveAnimation(
               index % 2 === 0 ? 'fade-right' : 'fade-left',
-              'zoom-in'
+              'zoom-in',
             )}
             className="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow"
           >
@@ -472,6 +483,7 @@ export function Servicios({ servicios }: ServiciosProps) {
 ```
 
 ### Ejemplo 2: Galería de Proyectos con Lazy Loading
+
 ```tsx
 // src/components/Proyectos.tsx
 'use client';
@@ -532,9 +544,7 @@ export function Proyectos({ proyectos }: ProyectosProps) {
                 alt={proyecto.titulo}
                 fill
                 className={`object-cover transition-all duration-500 ${
-                  loadedImages.has(proyecto.id)
-                    ? 'opacity-100 scale-100'
-                    : 'opacity-0 scale-105'
+                  loadedImages.has(proyecto.id) ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
                 }`}
                 onLoad={() => handleImageLoad(proyecto.id)}
               />
@@ -566,6 +576,7 @@ export function Proyectos({ proyectos }: ProyectosProps) {
 ```
 
 ### Ejemplo 3: Timeline Interactiva
+
 ```tsx
 // src/components/Timeline.tsx
 'use client';
@@ -625,9 +636,13 @@ export function Timeline({ events }: TimelineProps) {
                   </div>
                 </div>
 
-                <p className={`text-gray-600 transition-all duration-300 ${
-                  activeEvent === event.id ? 'opacity-100 max-h-40' : 'opacity-70 max-h-16 overflow-hidden'
-                }`}>
+                <p
+                  className={`text-gray-600 transition-all duration-300 ${
+                    activeEvent === event.id
+                      ? 'opacity-100 max-h-40'
+                      : 'opacity-70 max-h-16 overflow-hidden'
+                  }`}
+                >
                   {event.description}
                 </p>
               </div>
@@ -641,6 +656,7 @@ export function Timeline({ events }: TimelineProps) {
 ```
 
 ### Ejemplo 4: Formulario con Animaciones de Validación
+
 ```tsx
 // src/components/ContactForm.tsx
 'use client';
@@ -682,7 +698,7 @@ export function ContactForm() {
               <input
                 type="text"
                 value={formData.name}
-                onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
+                onChange={e => setFormData(prev => ({ ...prev, name: e.target.value }))}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                 required
               />
@@ -693,7 +709,7 @@ export function ContactForm() {
               <input
                 type="email"
                 value={formData.email}
-                onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
+                onChange={e => setFormData(prev => ({ ...prev, email: e.target.value }))}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                 required
               />
@@ -703,7 +719,7 @@ export function ContactForm() {
               <label className="block text-sm font-medium mb-2">Mensaje</label>
               <textarea
                 value={formData.message}
-                onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
+                onChange={e => setFormData(prev => ({ ...prev, message: e.target.value }))}
                 rows={5}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
                 required
@@ -719,9 +735,25 @@ export function ContactForm() {
             >
               {isSubmitting ? (
                 <span className="flex items-center justify-center">
-                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  <svg
+                    className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    ></path>
                   </svg>
                   Enviando...
                 </span>
@@ -731,10 +763,7 @@ export function ContactForm() {
             </button>
           </form>
         ) : (
-          <div
-            data-aos="zoom-in"
-            className="text-center py-12"
-          >
+          <div data-aos="zoom-in" className="text-center py-12">
             <div className="text-6xl mb-4">Hecho</div>
             <h3 className="text-2xl font-bold mb-2">¡Mensaje Enviado!</h3>
             <p className="text-gray-600">Gracias por contactarnos. Te responderemos pronto.</p>
@@ -777,9 +806,7 @@ const safeAnimations = {
   desktop: 'zoom-in',
 };
 
-<div data-aos={isMobile ? safeAnimations.mobile : safeAnimations.desktop}>
-  Contenido
-</div>
+<div data-aos={isMobile ? safeAnimations.mobile : safeAnimations.desktop}>Contenido</div>;
 ```
 
 ### 2. Animaciones No Funcionan
@@ -883,10 +910,7 @@ function AnimatedComponent() {
   const isMobile = useIsMobile();
 
   return (
-    <div
-      data-aos={isMobile ? 'fade-up' : 'fade-right'}
-      data-aos-delay={isMobile ? 0 : 200}
-    >
+    <div data-aos={isMobile ? 'fade-up' : 'fade-right'} data-aos-delay={isMobile ? 0 : 200}>
       Contenido
     </div>
   );
@@ -898,6 +922,7 @@ function AnimatedComponent() {
 ## Mejores Prácticas
 
 ### 1. Estructura del Proyecto
+
 ```
 src/
 ├── components/
@@ -915,6 +940,7 @@ src/
 ```
 
 ### 2. Componentes Reutilizables
+
 ```tsx
 // src/components/ui/AnimatedSection.tsx
 interface AnimatedSectionProps {
@@ -926,17 +952,14 @@ interface AnimatedSectionProps {
 export function AnimatedSection({
   children,
   animation = 'fade-up',
-  className = ''
+  className = '',
 }: AnimatedSectionProps) {
-  return (
-    <section className={`aos-container ${className}`}>
-      {children}
-    </section>
-  );
+  return <section className={`aos-container ${className}`}>{children}</section>;
 }
 ```
 
 ### 3. Sistema de Diseño de Animaciones
+
 ```tsx
 // src/config/animation.theme.ts
 export const ANIMATION_THEME = {
@@ -970,6 +993,7 @@ export const ANIMATION_THEME = {
 ```
 
 ### 4. Testing de Animaciones
+
 ```tsx
 // src/components/__tests__/AnimatedCard.test.tsx
 import { render, screen } from '@testing-library/react';
@@ -1007,6 +1031,7 @@ describe('AnimatedCard', () => {
 ## Optimización de Rendimiento
 
 ### 1. Lazy Loading de Animaciones
+
 ```tsx
 // Solo animar elementos visibles
 function useLazyAOS() {
@@ -1021,7 +1046,7 @@ function useLazyAOS() {
           observer.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (ref.current) {
@@ -1039,10 +1064,7 @@ function LazyAnimatedComponent() {
   const [ref, isVisible] = useLazyAOS();
 
   return (
-    <div
-      ref={ref}
-      data-aos={isVisible ? 'fade-up' : undefined}
-    >
+    <div ref={ref} data-aos={isVisible ? 'fade-up' : undefined}>
       Contenido
     </div>
   );
@@ -1050,6 +1072,7 @@ function LazyAnimatedComponent() {
 ```
 
 ### 2. Debouncing de Eventos
+
 ```tsx
 // src/hooks/useDebounce.ts
 export function useDebounce<T>(value: T, delay: number): T {
@@ -1073,23 +1096,16 @@ const debouncedResize = useDebounce(() => AOS.refresh(), 100);
 ```
 
 ### 3. Virtualización para Listas Largas
+
 ```tsx
 // Para listas muy largas, usar react-window
 import { FixedSizeList as List } from 'react-window';
 
 function VirtualizedAnimatedList({ items }: { items: any[] }) {
   return (
-    <List
-      height={400}
-      itemCount={items.length}
-      itemSize={100}
-    >
+    <List height={400} itemCount={items.length} itemSize={100}>
       {({ index, style }) => (
-        <div
-          style={style}
-          data-aos="fade-up"
-          data-aos-delay={index * 50}
-        >
+        <div style={style} data-aos="fade-up" data-aos-delay={index * 50}>
           {items[index].name}
         </div>
       )}
@@ -1103,6 +1119,7 @@ function VirtualizedAnimatedList({ items }: { items: any[] }) {
 ## Testing y Debugging
 
 ### 1. Debugging de AOS
+
 ```tsx
 // src/utils/aos.debug.ts
 export function debugAOS() {
@@ -1145,6 +1162,7 @@ export function useAOSDebug() {
 ```
 
 ### 2. Tests Unitarios
+
 ```tsx
 // src/components/__tests__/AOSProvider.test.tsx
 import { render, screen } from '@testing-library/react';
@@ -1169,6 +1187,7 @@ describe('AOSProvider', () => {
 ```
 
 ### 3. Tests de Integración
+
 ```tsx
 // src/__tests__/integration/AOS.integration.test.tsx
 import { render, screen, waitFor } from '@testing-library/react';
@@ -1201,20 +1220,24 @@ describe('AOS Integration', () => {
 ## Recursos y Referencias
 
 ### Documentación Oficial
+
 - [AOS GitHub](https://github.com/michalsnik/aos)
 - [AOS Demo](https://michalsnik.github.io/aos/)
 
 ### Herramientas Relacionadas
+
 - [Framer Motion](https://www.framer.com/motion/) - Alternativa más avanzada
 - [React Spring](https://www.react-spring.io/) - Animaciones basadas en física
 - [GSAP](https://greensock.com/gsap/) - Librería profesional de animaciones
 
 ### Artículos y Tutoriales
+
 - [CSS Triggers](https://csstriggers.com/) - Propiedades que activan repaints
 - [Web Animations API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API)
 - [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)
 
 ### Comunidad
+
 - [Stack Overflow - AOS](https://stackoverflow.com/questions/tagged/aos)
 - [Reddit r/webdev](https://www.reddit.com/r/webdev/)
 - [Dev.to](https://dev.to/search?q=aos)
@@ -1224,11 +1247,13 @@ describe('AOS Integration', () => {
 ## Checklist de Implementación
 
 ### Antes de Implementar
+
 - [ ] ¿El proyecto necesita animaciones de scroll?
 - [ ] ¿Los usuarios pueden tener preferencias de reducción de movimiento?
 - [ ] ¿El rendimiento es crítico para la aplicación?
 
 ### Durante la Implementación
+
 - [ ] AOSProvider incluido en la raíz de la app
 - [ ] CSS de AOS importado correctamente
 - [ ] Configuración optimizada para el proyecto
@@ -1236,12 +1261,14 @@ describe('AOS Integration', () => {
 - [ ] Contenedores con `overflow-x: hidden` donde sea necesario
 
 ### Testing
+
 - [ ] Animaciones funcionan en desktop y móvil
 - [ ] Respetan preferencias de accesibilidad
 - [ ] No causan problemas de rendimiento
 - [ ] Funcionan correctamente con contenido dinámico
 
 ### Optimización
+
 - [ ] Duraciones y delays optimizados
 - [ ] Animaciones desactivadas en dispositivos lentos
 - [ ] Lazy loading implementado para listas largas

@@ -1,7 +1,5 @@
 'use client';
 
-// componentes
-// import { AOSProvider } from './AOSProvider';
 // data
 import { proyectos } from '../data/proyectos';
 // hooks
@@ -11,7 +9,7 @@ export default function Proyectos() {
   const isMobile = useIsMobile();
 
   return (
-    <section className="my-20 aos-container" title='proyectos'>
+    <section className="my-20 aos-container" title="proyectos">
       <h2 className="text-center text-3xl" data-aos="zoom-in">
         Algunos de los proyectos realizados este año
       </h2>
@@ -28,6 +26,7 @@ export default function Proyectos() {
               alt={`screenshot que muestra una pantalla de ${proyecto.nombre}`}
               title={proyecto.nombre}
               className="w-full h-90 object-contain"
+              loading="lazy"
             />
             <div className="p-6"></div>
             <h3 className="text-2xl font-bold mb-2">{proyecto.nombre}</h3>

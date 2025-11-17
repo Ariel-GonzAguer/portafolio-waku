@@ -1,8 +1,8 @@
 /**
  * Componente Chatbot con OpenAI
- * 
+ *
  * Chatbot flotante que usa la API de OpenAI para responder preguntas.
- * 
+ *
  * Features:
  * - UI flotante (botón + ventana de chat)
  * - Streaming de respuestas en tiempo real
@@ -11,10 +11,10 @@
  * - Indicador de escritura
  * - Manejo de errores
  * - Rate limiting del lado del cliente
- * 
+ *
  * @example
  * import ChatbotOpenAI from './ChatbotOpenAI';
- * 
+ *
  * export default function Page() {
  *   return (
  *     <div>
@@ -130,14 +130,14 @@ export default function ChatbotOpenAI() {
     };
 
     // Añadir mensaje del usuario
-    setMessages((prev) => [...prev, userMessage]);
+    setMessages(prev => [...prev, userMessage]);
     setInput('');
     setIsLoading(true);
     setError(null);
 
     try {
       // Preparar historial para la API
-      const history = messages.map((msg) => ({
+      const history = messages.map(msg => ({
         role: msg.role,
         content: msg.content,
       }));
@@ -174,14 +174,14 @@ export default function ChatbotOpenAI() {
         content: '',
         timestamp: Date.now(),
       };
-      setMessages((prev) => [...prev, assistantMsg]);
+      setMessages(prev => [...prev, assistantMsg]);
 
       while (true) {
         const { done, value } = await reader.read();
         if (done) break;
 
         const chunk = decoder.decode(value);
-        const lines = chunk.split('\n').filter((line) => line.trim() !== '');
+        const lines = chunk.split('\n').filter(line => line.trim() !== '');
 
         for (const line of lines) {
           if (line.startsWith('data: ')) {
@@ -199,7 +199,7 @@ export default function ChatbotOpenAI() {
                   const delta = parsed.choices?.[0]?.delta?.content ?? parsed.content;
                   if (!delta) continue;
                   assistantMessage += delta;
-                  setMessages((prev) => updateLastMessage(prev, assistantMessage));
+                  setMessages(prev => updateLastMessage(prev, assistantMessage));
                 } catch (innerErr) {
                   console.error('Error parseando fragmento JSON:', innerErr, 'fragment:', fragment);
                 }
@@ -213,9 +213,9 @@ export default function ChatbotOpenAI() {
     } catch (err: any) {
       console.error('Error en el chatbot:', err);
       setError(err.message || 'Error desconocido');
-      
+
       // Remover el último mensaje si hubo error
-      setMessages((prev) => prev.slice(0, -1));
+      setMessages(prev => prev.slice(0, -1));
     } finally {
       setIsLoading(false);
     }
@@ -365,7 +365,7 @@ export default function ChatbotOpenAI() {
                 ref={inputRef}
                 type="text"
                 value={input}
-                onChange={(e) => setInput(e.target.value)}
+                onChange={e => setInput(e.target.value)}
                 placeholder="Escribe tu pregunta..."
                 disabled={isLoading}
                 className="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-600 disabled:bg-gray-100 disabled:cursor-not-allowed text-gray-800"

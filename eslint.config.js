@@ -29,9 +29,16 @@ export default tseslint.config(
     },
   },
   {
-    files: ['src/utils/logger.ts', 'src/test/logger.test.ts', 'src/test/setup.ts'],
+    files: [
+      'src/utils/logger.ts',
+      'src/test/logger.test.ts',
+      'src/test/setup.ts',
+      'src/pages/api/api-openai.ts',
+      'propuestas/**',
+    ],
     rules: {
       'no-console': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
     },
   },
   {

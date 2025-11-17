@@ -22,6 +22,7 @@ body {
   src:
     local('Lexend_Mega'),
     url(/tipografias/Lexend_Mega/Lexend_Mega.woff2) format('woff2');
+  font-display: swap;
 }
 
 @theme {

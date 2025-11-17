@@ -1,8 +1,8 @@
 /**
  * API Serverless para Chatbot con OpenAI
- * 
+ *
  * Endpoint: POST /api/chat-openai
- * 
+ *
  * Features:
  * - Integración con OpenAI GPT-4
  * - Conexión opcional con Firestore para datos del negocio
@@ -10,7 +10,7 @@
  * - Sanitización de inputs
  * - Streaming de respuestas
  * - Historial de conversación
- * 
+ *
  * @example
  * // Request
  * POST /api/chat-openai
@@ -21,7 +21,7 @@
  *     { "role": "assistant", "content": "¡Hola! ¿En qué puedo ayudarte?" }
  *   ]
  * }
- * 
+ *
  * // Response (streaming)
  * data: {"content": "Nuestros horarios son..."}
  */
@@ -62,7 +62,7 @@ const RATE_WINDOW = 60 * 1000; // 1 minuto
 
 /**
  * Verifica si una IP ha excedido el rate limit.
- * 
+ *
  * @param clientIp - IP del cliente
  * @returns true si está dentro del límite, false si excedió
  */
@@ -92,7 +92,7 @@ function checkRateLimit(clientIp: string): boolean {
 
 /**
  * Sanitiza el input del usuario para prevenir inyecciones.
- * 
+ *
  * @param text - Texto a sanitizar
  * @returns Texto sanitizado
  */
@@ -109,7 +109,7 @@ function sanitizeInput(text: string): string {
 
 /**
  * Obtiene información del negocio desde Firestore.
- * 
+ *
  * @returns Datos del negocio o null si no hay conexión
  */
 async function getBusinessData(): Promise<any> {
@@ -126,17 +126,66 @@ async function getBusinessData(): Promise<any> {
 
     // OPCIÓN 2: Datos estáticos (para pruebas)
     return {
-      name: 'Café Verde',
-      description: 'Cafetería vegana que ofrece café orgánico y postres sin gluten.',
-      hours: 'Lunes a sábado, de 8am a 6pm',
-      address: 'Avenida Central, San José, Costa Rica',
-      products: [
-        { name: 'Capuchino vegano', price: '₡2500' },
-        { name: 'Brownie sin gluten', price: '₡1800' },
-        { name: 'Smoothie tropical', price: '₡2200' },
+      name: 'Gato Rojo Lab - Desarrollo JAMstack, accesibilidad y ',
+      description:
+        'Soluciones centradas en la Persona Usuaria. Accesibilidad, minimalismo y creatividad. Desarrollo JAM Stack tipado, testeado, limpio, con backend serverless',
+      hours: 'martes a sábado: 10am a 4pm, domingo y lunes: cerrado.',
+      servicios: [
+        {
+          name: 'Desarrollo de Aplicaciones Web JAM Stack',
+          description:
+            'Creación de aplicaciones web modernas utilizando TypeScript, APIs y Markup. Desarrollo de soluciones escalables con React+Vite, Waku o Astro, optimizadas para rendimiento y SEO.',
+        },
+        {
+          name: 'Investigación Experiencias (UX Research)',
+          description:
+            'Investigación profunda para entender necesidades de las personas usuarias. Incluye entrevistas, encuestas, análisis de comportamiento y pruebas de usabilidad para informar decisiones de diseño.',
+        },
+        {
+          name: 'Integración de componentes con IA',
+          description:
+            'Incorporación de funcionalidades impulsadas por inteligencia artificial en aplicaciones web. Implementación de chatbots y generación de contenido.',
+        },
+        {
+          name: 'Diseño de Interfaces de Usuario (UI/UX)',
+          description:
+            'Creación de diseños intuitivos y atractivos centrados en la experiencia del usuario. Utilizando herramientas como Figma para prototipos interactivos y wireframes.',
+        },
+        {
+          name: 'Auditoría de Accesibilidad Web',
+          description:
+            'Evaluación y mejora de la accesibilidad en sitios web para cumplir con estándares WCAG. Asegurando que las aplicaciones sean usables por personas con discapacidades.',
+        },
+        {
+          name: 'Consultoría en Tecnologías Web',
+          description:
+            'Asesoramiento experto en selección de tecnologías, arquitectura de proyectos y mejores prácticas para desarrollo web moderno y sostenible.',
+        },
       ],
-      contact: 'WhatsApp: +506 8888 8888',
-      website: 'https://cafeverde.com',
+      whatsapp: '506 63685484',
+      email: 'ariegonzaguer@gmail.com',
+      faq: {
+        '¿Qué es JAMstack?':
+          'JAMstack es una arquitectura web moderna que separa el frontend del backend, utilizando JavaScript, APIs y Markup para crear sitios rápidos y seguros.',
+        '¿Por qué es importante la accesibilidad web?':
+          'La accesibilidad web asegura que todas las personas, incluidas aquellas con discapacidades, puedan acceder y utilizar sitios web de manera efectiva.',
+        '¿Qué tecnologías utilizan?':
+          'Utilizamos tecnologías como React, Vite, Astro, TypeScript y diversas APIs para construir aplicaciones web modernas y eficientes.',
+        '¿Ofrecen soporte post-lanzamiento?':
+          'Sí, ofrecemos servicios de mantenimiento y soporte para asegurar que su aplicación web funcione sin problemas después del lanzamiento.',
+        '¿Cómo puedo contactarlos?':
+          'Puedes contactarnos a través de WhatsApp al 506 63685484 o por correo electrónico a ariegonzaguer@gmail.com.',
+        '¿Cuánto tiempo toma un proyecto típico?':
+          'El tiempo varía según la complejidad, pero un proyecto web básico puede tomar de 2 a 4 semanas, mientras que proyectos más complejos pueden extenderse a varios meses.',
+        '¿Trabajan con clientes internacionales?':
+          'Sí, trabajamos con clientes de todo el mundo, utilizando herramientas de comunicación remota como Zoom y Slack para mantener una colaboración efectiva.',
+        '¿Qué incluye el precio de un servicio?':
+          'El precio incluye el desarrollo completo, pruebas, documentación y soporte inicial. Los costos adicionales pueden aplicarse para mantenimiento continuo o cambios posteriores.',
+        '¿Qué es la investigación UX?':
+          'La investigación UX implica estudiar el comportamiento de los usuarios para mejorar la experiencia. Incluye métodos como entrevistas, encuestas y pruebas de usabilidad.',
+        '¿Cómo se asegura la accesibilidad en los proyectos?':
+          'Utilizamos estándares WCAG, realizamos auditorías automáticas y manuales, y probamos con herramientas de asistencia para garantizar que los sitios sean accesibles para todos.',
+      },
     };
   } catch (error) {
     console.error('[OpenAI] Error obteniendo datos del negocio:', error);
@@ -150,16 +199,16 @@ async function getBusinessData(): Promise<any> {
 
 /**
  * Genera el system prompt con la información del negocio.
- * 
+ *
  * @param businessData - Datos del negocio
  * @returns System prompt personalizado
  */
 function createSystemPrompt(businessData: any): string {
   if (!businessData) {
     return `
-      Eres un asistente virtual amable y profesional.
+      Eres un asistente virtual amable y profesional de Gato Rojo Lab.
       Responde de manera concisa y útil.
-      Si no tienes información sobre algo, di "No tengo esa información disponible".
+      Si no tienes información sobre algo, di "No tengo esa información disponible" y sugiere escribir al correo de soporte para más detalles.
     `.trim();
   }
 
@@ -169,17 +218,22 @@ function createSystemPrompt(businessData: any): string {
     Información del negocio:
     - Descripción: ${businessData.description}
     - Horarios: ${businessData.hours}
-    - Dirección: ${businessData.address}
-    - Contacto: ${businessData.contact}
-    ${businessData.products ? `- Productos: ${JSON.stringify(businessData.products)}` : ''}
+    - Whatsapp: ${businessData.whatsapp}
+    - Email: ${businessData.email}
+    - Servicios: ${businessData.servicios.map((s: any) => `${s.name}: ${s.description}`).join('; ')}
+    - Preguntas frecuentes: ${Object.entries(businessData.faq)
+      .map(([q, a]) => `${q} - ${a}`)
+      .join('; ')}
     
     Instrucciones:
     - Responde SOLO con información del negocio proporcionada
     - Sé amable, profesional y conciso
-    - Si el usuario pregunta algo que no está en la información, di "No tengo esa información, pero puedes contactarnos en ${businessData.contact}"
+    - Si el usuario pregunta algo que no está en la información, di "No tengo esa información, pero puedes contactarnos en ${businessData.email}"
     - No inventes precios, horarios ni información que no esté aquí
     - Usa tono conversacional y cercano
     - Si el usuario te saluda, responde amablemente y ofrece ayuda
+    - Si alguiente dice que quiere adquirir un servicio, indicale que puede escribir al correo de soporte para más detalles
+    - Si alguien pregunta por el precio de un servicio, indícale que los precios varían según el proyecto y que puede escribir al correo de soporte para más detalles
   `.trim();
 }
 
@@ -209,7 +263,7 @@ export async function POST(request: Request): Promise<Response> {
         {
           status: 429,
           headers: { 'Content-Type': 'application/json' },
-        }
+        },
       );
     }
 
@@ -218,13 +272,10 @@ export async function POST(request: Request): Promise<Response> {
     const { question, history = [] } = body;
 
     if (!question || typeof question !== 'string') {
-      return new Response(
-        JSON.stringify({ error: 'La pregunta es requerida' }),
-        {
-          status: 400,
-          headers: { 'Content-Type': 'application/json' },
-        }
-      );
+      return new Response(JSON.stringify({ error: 'La pregunta es requerida' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      });
     }
 
     // 4. Sanitizar input
@@ -244,7 +295,7 @@ export async function POST(request: Request): Promise<Response> {
 
     // 7. Crear streaming completion
     const stream = await openai.chat.completions.create({
-      model: 'gpt-4o', // o 'gpt-3.5-turbo' para menor costo
+      model: 'gpt-3.5-turbo', // 'gpt-3.5-turbo' para menor costo
       messages,
       temperature: 0.7,
       max_tokens: 500,
@@ -296,7 +347,7 @@ export async function POST(request: Request): Promise<Response> {
         {
           status: 502,
           headers: { 'Content-Type': 'application/json' },
-        }
+        },
       );
     }
 
@@ -308,7 +359,7 @@ export async function POST(request: Request): Promise<Response> {
         {
           status: 502,
           headers: { 'Content-Type': 'application/json' },
-        }
+        },
       );
     }
 
@@ -320,7 +371,7 @@ export async function POST(request: Request): Promise<Response> {
       {
         status: 500,
         headers: { 'Content-Type': 'application/json' },
-      }
+      },
     );
   }
 }

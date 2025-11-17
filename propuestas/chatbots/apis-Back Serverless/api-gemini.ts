@@ -1,8 +1,8 @@
 /**
  * API Serverless para Chatbot con Google Gemini
- * 
+ *
  * Endpoint: POST /api/chat-gemini
- * 
+ *
  * Features:
  * - Integración con Google Gemini 1.5 Flash
  * - Conexión opcional con Firestore para datos del negocio
@@ -11,7 +11,7 @@
  * - Streaming de respuestas
  * - Historial de conversación
  * - Safety settings configurables
- * 
+ *
  * @example
  * // Request
  * POST /api/chat-gemini
@@ -22,7 +22,7 @@
  *     { "role": "model", "parts": [{ "text": "¡Hola! ¿En qué puedo ayudarte?" }] }
  *   ]
  * }
- * 
+ *
  * // Response (streaming)
  * data: {"content": "Nuestros horarios son..."}
  */
@@ -81,7 +81,7 @@ const RATE_WINDOW = 60 * 1000; // 1 minuto
 
 /**
  * Verifica si una IP ha excedido el rate limit.
- * 
+ *
  * @param clientIp - IP del cliente
  * @returns true si está dentro del límite, false si excedió
  */
@@ -111,7 +111,7 @@ function checkRateLimit(clientIp: string): boolean {
 
 /**
  * Sanitiza el input del usuario para prevenir inyecciones.
- * 
+ *
  * @param text - Texto a sanitizar
  * @returns Texto sanitizado
  */
@@ -128,7 +128,7 @@ function sanitizeInput(text: string): string {
 
 /**
  * Obtiene información del negocio desde Firestore.
- * 
+ *
  * @returns Datos del negocio o null si no hay conexión
  */
 async function getBusinessData(): Promise<any> {
@@ -169,7 +169,7 @@ async function getBusinessData(): Promise<any> {
 
 /**
  * Genera la system instruction con la información del negocio.
- * 
+ *
  * @param businessData - Datos del negocio
  * @returns System instruction personalizada
  */
@@ -230,7 +230,7 @@ export async function POST(request: Request): Promise<Response> {
         {
           status: 429,
           headers: { 'Content-Type': 'application/json' },
-        }
+        },
       );
     }
 
@@ -239,13 +239,10 @@ export async function POST(request: Request): Promise<Response> {
     const { question, history = [] } = body;
 
     if (!question || typeof question !== 'string') {
-      return new Response(
-        JSON.stringify({ error: 'La pregunta es requerida' }),
-        {
-          status: 400,
-          headers: { 'Content-Type': 'application/json' },
-        }
-      );
+      return new Response(JSON.stringify({ error: 'La pregunta es requerida' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      });
     }
 
     // 4. Sanitizar input
@@ -328,7 +325,7 @@ export async function POST(request: Request): Promise<Response> {
         {
           status: 502,
           headers: { 'Content-Type': 'application/json' },
-        }
+        },
       );
     }
 
@@ -340,7 +337,7 @@ export async function POST(request: Request): Promise<Response> {
         {
           status: 502,
           headers: { 'Content-Type': 'application/json' },
-        }
+        },
       );
     }
 
@@ -352,7 +349,7 @@ export async function POST(request: Request): Promise<Response> {
         {
           status: 400,
           headers: { 'Content-Type': 'application/json' },
-        }
+        },
       );
     }
 
@@ -364,7 +361,7 @@ export async function POST(request: Request): Promise<Response> {
       {
         status: 500,
         headers: { 'Content-Type': 'application/json' },
-      }
+      },
     );
   }
 }

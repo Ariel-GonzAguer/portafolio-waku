@@ -1,8 +1,8 @@
 /**
  * Componente Chatbot con Google Gemini
- * 
+ *
  * Chatbot flotante que usa la API de Google Gemini para responder preguntas.
- * 
+ *
  * Features:
  * - UI flotante (botón + ventana de chat)
  * - Streaming de respuestas en tiempo real
@@ -11,10 +11,10 @@
  * - Indicador de escritura
  * - Manejo de errores
  * - Rate limiting del lado del cliente
- * 
+ *
  * @example
  * import ChatbotGemini from './ChatbotGemini';
- * 
+ *
  * export default function Page() {
  *   return (
  *     <div>
@@ -80,14 +80,14 @@ export default function ChatbotGemini() {
     };
 
     // Añadir mensaje del usuario
-    setMessages((prev) => [...prev, userMessage]);
+    setMessages(prev => [...prev, userMessage]);
     setInput('');
     setIsLoading(true);
     setError(null);
 
     try {
       // Preparar historial para la API
-      const history = messages.map((msg) => ({
+      const history = messages.map(msg => ({
         role: msg.role,
         parts: [{ text: msg.content }],
       }));
@@ -124,14 +124,14 @@ export default function ChatbotGemini() {
         content: '',
         timestamp: Date.now(),
       };
-      setMessages((prev) => [...prev, assistantMsg]);
+      setMessages(prev => [...prev, assistantMsg]);
 
       while (true) {
         const { done, value } = await reader.read();
         if (done) break;
 
         const chunk = decoder.decode(value);
-        const lines = chunk.split('\n').filter((line) => line.trim() !== '');
+        const lines = chunk.split('\n').filter(line => line.trim() !== '');
 
         for (const line of lines) {
           if (line.startsWith('data: ')) {
@@ -143,7 +143,7 @@ export default function ChatbotGemini() {
               if (parsed.content) {
                 assistantMessage += parsed.content;
                 // Actualizar mensaje del asistente
-                setMessages((prev) => {
+                setMessages(prev => {
                   const newMessages = [...prev];
                   const lastMsg = newMessages[newMessages.length - 1];
                   if (lastMsg) {
@@ -161,9 +161,9 @@ export default function ChatbotGemini() {
     } catch (err: any) {
       console.error('Error en el chatbot:', err);
       setError(err.message || 'Error desconocido');
-      
+
       // Remover el último mensaje si hubo error
-      setMessages((prev) => prev.slice(0, -1));
+      setMessages(prev => prev.slice(0, -1));
     } finally {
       setIsLoading(false);
     }
@@ -313,7 +313,7 @@ export default function ChatbotGemini() {
                 ref={inputRef}
                 type="text"
                 value={input}
-                onChange={(e) => setInput(e.target.value)}
+                onChange={e => setInput(e.target.value)}
                 placeholder="Escribe tu pregunta..."
                 disabled={isLoading}
                 className="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600 disabled:bg-gray-100 disabled:cursor-not-allowed text-gray-800"

@@ -15,7 +15,7 @@ export default function Hero() {
       </h1>
 
       <img
-        src="/imagenes/soloGato.png"
+        src="/imagenes/soloGato.webp"
         alt="Gato Rojo Lab"
         width={300}
         height={300}

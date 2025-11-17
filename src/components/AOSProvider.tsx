@@ -41,7 +41,7 @@ export function AOSProvider() {
     // Función para refrescar AOS cuando cambie el contenido
     function refreshAOS() {
       AOS.refresh();
-    };
+    }
 
     // Escuchar cambios en el DOM
     window.addEventListener('resize', refreshAOS);
