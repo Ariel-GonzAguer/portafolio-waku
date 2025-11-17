@@ -36,7 +36,7 @@ export default function Proyectos() {
               target="_blank"
               rel="noopener noreferrer"
               title={proyecto.nombre}
-              className="bg-doradoSK text-black px-4 py-2 rounded hover:bg-gatorojo transition inline-block"
+              className="bg-doradoSK text-black px-4 py-2 rounded hover:bg-gatorojo transition inline-block focus:ring-6 focus:ring-gatorojo"
             >
               Ver Proyecto
             </a>
