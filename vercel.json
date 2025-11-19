@@ -16,10 +16,6 @@
         {
           "key": "Referrer-Policy",
           "value": "strict-origin-when-cross-origin"
-        },
-        {
-          "key": "Permissions-Policy",
-          "value": "geolocation=(self), camera=(self), microphone=(self)"
         }
       ]
     }
@@ -28,6 +24,24 @@
     {
       "source": "/api/:path*",
       "destination": "/api/:path*"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/servicios",
+      "status": 410
+    },
+    {
+      "src": "/contacto",
+      "status": 410
+    },
+    {
+      "src": "/proyectos",
+      "status": 410
+    },
+    {
+      "src": "/acerca-de",
+      "status": 410
     }
   ]
 }
