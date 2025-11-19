@@ -280,7 +280,7 @@ export async function POST(request: Request): Promise<Response> {
 
     // 4. Sanitizar input
     const sanitizedQuestion = sanitizeInput(question);
-    console.log(`[OpenAI] Pregunta: "${sanitizedQuestion}"`);
+    console.log(`[OpenAI] Nueva pregunta`);
 
     // 5. Obtener datos del negocio
     const businessData = await getBusinessData();

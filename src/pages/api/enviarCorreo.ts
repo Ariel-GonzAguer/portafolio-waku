@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-// Waku API Route - Usa Web Standards (Request/Response)
+// Waku API Route - Usando Web Standards (Request/Response)
 // Utilidades de seguridad
 import {
   getClientIp,
@@ -64,7 +64,7 @@ import emailjs from '@emailjs/nodejs';
  * - Variables de entorno: EMAILJS_PUBLIC_KEY, EMAILJS_PRIVATE_KEY, EMAILJS_SERVICE_ID
  * - Funciones de validación y sanitización personalizadas
  */
-export const POST = async (request: Request): Promise<Response> => {
+export async function POST(request: Request): Promise<Response> {
   try {
     // Obtener y sanitizar IP del cliente
     const clientIp = getClientIp({ headers: request.headers });
@@ -184,4 +184,4 @@ export const POST = async (request: Request): Promise<Response> => {
     applySecurityHeaders(headers);
     return Response.json({ error: 'Error interno al enviar el correo' }, { status: 500, headers });
   }
-};
+}
