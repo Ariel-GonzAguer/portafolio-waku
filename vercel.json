@@ -1,9 +1,29 @@
 {
   "buildCommand": "pnpm build",
   "installCommand": "pnpm install --frozen-lockfile",
-  "headers": [
+  "routes": [
     {
-      "source": "/(.*)",
+      "src": "/api/:path*",
+      "dest": "/api/:path*"
+    },
+    {
+      "src": "/servicios",
+      "status": 410
+    },
+    {
+      "src": "/contacto",
+      "status": 410
+    },
+    {
+      "src": "/proyectos",
+      "status": 410
+    },
+    {
+      "src": "/acerca-de",
+      "status": 410
+    },
+    {
+      "src": "/(.*)",
       "headers": [
         {
           "key": "X-Frame-Options",
@@ -18,30 +38,6 @@
           "value": "strict-origin-when-cross-origin"
         }
       ]
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/api/:path*",
-      "destination": "/api/:path*"
-    }
-  ],
-  "redirects": [
-    {
-      "source": "/servicios",
-      "status": 410
-    },
-    {
-      "source": "/contacto",
-      "status": 410
-    },
-    {
-      "source": "/proyectos",
-      "status": 410
-    },
-    {
-      "source": "/acerca-de",
-      "status": 410
     }
   ]
 }
