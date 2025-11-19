@@ -13,3 +13,4 @@ dist
 .env.local
 ZZ_antes_de_desplegar.md
 .vercel
+.vercel.*

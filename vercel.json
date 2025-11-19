@@ -26,21 +26,21 @@
       "destination": "/api/:path*"
     }
   ],
-  "routes": [
+  "redirects": [
     {
-      "src": "/servicios",
+      "source": "/servicios",
       "status": 410
     },
     {
-      "src": "/contacto",
+      "source": "/contacto",
       "status": 410
     },
     {
-      "src": "/proyectos",
+      "source": "/proyectos",
       "status": 410
     },
     {
-      "src": "/acerca-de",
+      "source": "/acerca-de",
       "status": 410
     }
   ]
