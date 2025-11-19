@@ -243,7 +243,7 @@ export default function ChatbotOpenAI() {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-red-300 to-red-600 hover:from-amber-300 hover:to-amber-700 text-black rounded-full p-4 shadow-lg transition-all duration-300 hover:scale-110"
+          className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-red-300 to-red-600 hover:from-amber-300 hover:to-amber-700 text-black rounded-full p-4 shadow-lg transition-all duration-300 hover:scale-110 cursor-pointer"
           aria-label="Abrir chat"
           title="¿Necesitas ayuda?"
         >

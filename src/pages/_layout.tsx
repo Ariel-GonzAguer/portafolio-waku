@@ -20,7 +20,7 @@ export default async function HomeLayout({ children }: HomeLayoutProps) {
       <link rel="icon" href="/imagenes/soloGato.png" title="favicon Gato Rojo Lab" />
       <meta
         name="description"
-        content="GatoRojoLab — Diseño UX, Desarrollo JAMstack, Accesibilidad e Investigación."
+        content="GatoRojoLab combina investigación de las Personas Usuarias, diseño UX centrado en sus clientes y desarrollo JAMstack (React + TypeScript) para entregar sitios accesibles, rápidos y orientados a la conversión. Servicios: investigación UX, prototipado, desarrollo frontend accesible y optimización de rendimiento."
       />
       <meta
         name="keywords"
@@ -30,7 +30,7 @@ export default async function HomeLayout({ children }: HomeLayoutProps) {
       <meta name="publisher" content="Gato Rojo Lab" />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href="https://gatorojolab.com/" />
-      <title> GatoRojoLab </title>
+      <title> GatoRojoLab - Desarrollo web y UX centrado en la Persona Usuaria</title>
 
       {/* Open Graph / Twitter */}
       <meta property="og:site_name" content="GatoRojoLab" />
@@ -41,9 +41,9 @@ export default async function HomeLayout({ children }: HomeLayoutProps) {
       />
       <meta
         property="og:description"
-        content="GatoRojoLab — Diseño UX, desarrollo JAMstack, accesibilidad y investigación."
+        content="GatoRojoLab combina investigación de las Personas Usuarias, diseño UX centrado en sus clientes y desarrollo JAMstack (React + TypeScript) para entregar sitios accesibles, rápidos y orientados a la conversión. Servicios: investigación UX, prototipado, desarrollo frontend accesible y optimización de rendimiento. Basado en Costa Rica — revise el portafolio y solicita una consultoría."
       />
-      <meta property="og:image" content="/imagenes/soloGato.png" title="favicon Gato Rojo Lab" />
+      <meta property="og:image" content="/imagenes/soloGato.webp" title="favicon Gato Rojo Lab" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="publisher" content="GatoRojoLab" />
       <meta name="theme-color" content="#0f172a" />

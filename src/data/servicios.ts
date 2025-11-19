@@ -1,7 +1,7 @@
 export const servicios = [
   {
     id: '0',
-    nombre: 'Desarrollo de Aplicaciones Web JAM Stack',
+    nombre: 'Desarrollo de Aplicaciones Web',
     descripcion:
       'Creación de aplicaciones web modernas utilizando TypeScript, APIs y Markup. Desarrollo de soluciones escalables con React+Vite, Waku o Astro, optimizadas para rendimiento y SEO.',
     tecnologias: ['React', 'Waku', 'Astro', 'TypeScript'],
