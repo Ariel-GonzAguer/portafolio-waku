@@ -105,6 +105,7 @@ setAnswer(data.answer);
 }
 
 return (
+
 <div>
 <h1>Chatbot de Café Verde</h1>
 <textarea
@@ -251,6 +252,7 @@ setAnswer(data.answer);
 }
 
 return (
+
 <div className="chat">
 <h2>Asistente de Café Verde</h2>
 <textarea
