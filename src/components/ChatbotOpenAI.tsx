@@ -1,3 +1,4 @@
+'use client';
 /**
  * Componente Chatbot con OpenAI
  *
@@ -24,7 +25,6 @@
  * }
  */
 
-'use client';
 
 // hooks
 import { useState, useRef, useEffect } from 'react';
