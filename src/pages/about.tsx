@@ -3,8 +3,6 @@ export default async function AboutPage() {
     <div>
       <h1 className="text-4xl font-bold tracking-tight">About Us</h1>
     </div>
-
-    // Establecer el título y meta tags de la página
   );
 }
 

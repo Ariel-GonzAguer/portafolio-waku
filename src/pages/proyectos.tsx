@@ -18,7 +18,11 @@ export default function ProyectosPage() {
       <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {proyectos.map(proyecto => (
           <div key={proyecto.id} className="bg-gris-medio rounded-lg shadow-md py-4">
-            <img src={proyecto.img} alt={proyecto.nombre} className="w-full h-90 object-contain" />
+            <img 
+              src={Array.isArray(proyecto.img) ? proyecto.img[0] : proyecto.img} 
+              alt={proyecto.nombre} 
+              className="w-full h-90 object-contain" 
+            />
             <div className="p-2">
               <h3 className="text-xl text-gris-heavy font-semibold mb-2">{proyecto.nombre}</h3>
               <p className="text-gris-claro-600 mb-4 text-lg">{proyecto.descripcion}</p>
