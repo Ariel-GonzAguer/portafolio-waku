@@ -52,5 +52,5 @@ export function AOSProvider() {
     };
   }, []);
 
-  return null;
+  return <></>;
 }
