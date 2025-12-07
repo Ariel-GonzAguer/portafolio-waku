@@ -6,8 +6,8 @@ export default function Hero() {
   const isMobile = useIsMobile();
 
   return (
-    <section title="Hero Section" className="flex flex-col items-center">
-      <h1 className={`text-8xl font-bold font-lexend-mega pt-6`}>
+    <section aria-labelledby='Sección-de-Encabezado' className="flex flex-col items-center">
+      <h1 id="Sección-de-Encabezado" className={`text-8xl font-bold font-lexend-mega pt-6`}>
         G<span className="text-gris-claro">A</span>T<span className="text-gris-claro">O</span>{' '}
         {isMobile ? <br /> : null}R<span className="text-gris-claro">O</span>J
         <span className="text-gris-claro">O</span> {isMobile ? <br /> : null}L
@@ -16,7 +16,7 @@ export default function Hero() {
 
       <img
         src="/imagenes/soloGato.webp"
-        alt="Gato Rojo Lab"
+        alt='Logo de Gato Rojo Lab. Muestra un gato de color rojo parado en sus cuatro patas.'
         width={300}
         height={300}
         className="my-10"

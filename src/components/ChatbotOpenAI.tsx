@@ -243,7 +243,7 @@ export default function ChatbotOpenAI() {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-red-300 to-red-600 hover:from-amber-300 hover:to-amber-700 text-black rounded-full p-4 shadow-lg transition-all duration-300 hover:scale-110 cursor-pointer"
+          className="fixed bottom-6 right-6 z-50 bg-linear-to-r from-red-300 to-red-600 hover:from-amber-300 hover:to-amber-700 text-black rounded-full p-4 shadow-lg transition-all duration-300 hover:scale-110 cursor-pointer"
           aria-label="Abrir chat"
           title="¿Necesitas ayuda?"
         >
@@ -268,7 +268,7 @@ export default function ChatbotOpenAI() {
       {isOpen && (
         <div className="fixed bottom-6 right-6 z-50 w-96 h-[600px] bg-white rounded-lg shadow-2xl flex flex-col overflow-hidden">
           {/* Header */}
-          <div className="bg-gradient-to-r from-red-300 to-red-600 text-black p-4 flex justify-between items-center">
+          <div className="bg-linear-to-r from-red-300 to-red-600 text-black p-4 flex justify-between items-center">
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
               <h3 className="font-semibold">Asistente Virtual</h3>
@@ -336,7 +336,7 @@ export default function ChatbotOpenAI() {
                 <div
                   className={`max-w-[80%] rounded-lg p-3 ${
                     msg.role === 'user'
-                      ? 'bg-gradient-to-r from-red-300 to-red-600 text-white'
+                      ? 'bg-linear-to-r from-red-300 to-red-600 text-white'
                       : 'bg-white text-gray-800 shadow'
                   }`}
                 >
@@ -381,7 +381,7 @@ export default function ChatbotOpenAI() {
               <button
                 type="submit"
                 disabled={isLoading || !input.trim()}
-                className="bg-gradient-to-r from-red-300 to-red-600 hover:from-amber-300 hover:to-amber-700 text-black rounded-lg px-4 py-2 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                className="bg-linear-to-r from-red-300 to-red-600 hover:from-amber-300 hover:to-amber-700 text-black rounded-lg px-4 py-2 transition disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

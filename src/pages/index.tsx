@@ -11,6 +11,7 @@ export default async function HomePage() {
   return (
     <section title="main" className="flex flex-col items-center justify-center pt-10">
       <Hero />
+      <a href="#formulario-contacto" title='Ir al formulario de contacto' className='mt-10 text-2xl px-2 py-1 border border-white rounded text-amber-300 font-bold hover:bg-white hover:border-amber-300 hover:text-black transition-all duration-300 ease-in-out focus:ring-6 focus:ring-doradoSK'>Contacto</a>
       <Proyectos />
       <Servicios />
       <MarqueeTecnologias />

@@ -9,8 +9,8 @@ export default function Servicios() {
   const isMobile = useIsMobile();
 
   return (
-    <section className="mb-20 aos-container" title="servicios">
-      <h2 className="text-center text-4xl font-bold mb-10">Servicios</h2>
+    <section className="mb-20 aos-container" aria-labelledby="Sección-de-Servicios">
+      <h2 id="Sección-de-Servicios" className="text-center text-4xl font-bold mb-10">Servicios</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         {servicios.map(servicio => (
           <article

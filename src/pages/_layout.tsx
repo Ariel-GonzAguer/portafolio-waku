@@ -30,25 +30,25 @@ export default async function HomeLayout({ children }: HomeLayoutProps) {
       <meta name="publisher" content="Gato Rojo Lab" />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href="https://gatorojolab.com/" />
-      <title> GatoRojoLab - Desarrollo web y UX centrado en la Persona Usuaria</title>
+      <title> Gato Rojo Lab - Soluciones web centradas en la Persona Usuaria</title>
 
       {/* Open Graph / Twitter */}
-      <meta property="og:site_name" content="GatoRojoLab" />
+      <meta property="og:site_name" content="Gato Rojo Lab" />
       <meta property="og:type" content="website" />
       <meta
         property="og:title"
-        content="GatoRojoLab — Desarrollo web y UX centrado en la persona"
+        content="Gato Rojo Lab — Soluciones web centradas en la Persona Usuaria"
       />
       <meta
         property="og:description"
-        content="GatoRojoLab combina investigación de las Personas Usuarias, diseño UX centrado en sus clientes y desarrollo JAMstack (React + TypeScript) para entregar sitios accesibles, rápidos y orientados a la conversión. Servicios: investigación UX, prototipado, desarrollo frontend accesible y optimización de rendimiento. Basado en Costa Rica — revise el portafolio y solicita una consultoría."
+        content="Gato Rojo Lab combina investigación de las Personas Usuarias, diseño UX centrado en sus clientes y desarrollo JAMstack (React + TypeScript) para entregar sitios accesibles, rápidos y orientados a la conversión. Servicios: investigación UX, prototipado, desarrollo frontend accesible y optimización de rendimiento. Basado en Costa Rica — revise el portafolio y solicita una consultoría."
       />
       <meta property="og:image" content="/imagenes/soloGato.webp" title="favicon Gato Rojo Lab" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="publisher" content="GatoRojoLab" />
+      <meta name="publisher" content="Gato Rojo Lab" />
       <meta name="theme-color" content="#0f172a" />
 
-      {/* JSON-LD básico de persona/organización (archivo estático para evitar inline scripts) */}
+      {/* JSON-LD básico de organización (archivo estático para evitar inline scripts) */}
       <script type="application/ld+json" src="/structured-data.json"></script>
 
       <section className="flex flex-col min-h-screen">

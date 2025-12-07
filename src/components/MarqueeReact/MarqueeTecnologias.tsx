@@ -74,8 +74,8 @@ export default function MarqueeTecnologias({
   }
 
   return (
-    <section className={`marquee-section ${className}`} title="marquee de tecnologías">
-      <h3>{title}</h3>
+    <section className={`marquee-section ${className}`} aria-labelledby="marquee-de-tecnologias">
+      <h3 id="marquee-de-tecnologias">{title}</h3>
       <div className="marquee-container">
         <div
           className="marquee"
@@ -89,7 +89,6 @@ export default function MarqueeTecnologias({
                 src={tech.icon}
                 alt={`${tech.name} logo`}
                 style={getImageStyles(tech.name)}
-                title={tech.name}
               />
               <span>{tech.name}</span>
             </div>

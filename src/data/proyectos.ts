@@ -1,13 +1,13 @@
 export const proyectos = [
   {
     id: '0',
-    nombre: 'Pasaporte Museo',
+    nombre: 'Pasaporte Cercevero Festival Ulloa',
     descripcion:
-      'Aplicación web instalable que permite a las personas visitantes registrar sus visitas.',
+      'Aplicación web que se usó como pasaporte digital para el Festival Cercevero Ulloa.',
     tecnologias: ['React', 'Zustand', 'React-PDF', 'QRCode'],
-    enlace: 'https://pasaporte-museofan.vercel.app/',
-    tags: ['aplicación web', 'aplicación móvil', 'cultura', 'Vercel'],
-    img: ['/imagenes/proyectos/museo.webp'],
+    enlace: 'https://fest-ulloa.netlify.app/',
+    tags: ['aplicación web', 'festival', 'pasaporte', 'Netlify'],
+    img: ['/imagenes/proyectos/pasaporte.webp'],
   },
   {
     id: '1',

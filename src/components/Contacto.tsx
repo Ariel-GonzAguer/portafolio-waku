@@ -54,9 +54,11 @@ export default function Contacto() {
       onSubmit={handleSubmit}
       className="flex flex-col max-w-md mx-auto p-6 bg-gris-heavy"
       title="formulario de contacto"
+      id='formulario-contacto'
+      aria-labelledby="Formulario-de-Contacto"
     >
       <Toaster richColors closeButton />
-      <h2 className="text-2xl font-bold mb-4 text-center">Contáctenos</h2>
+      <h2 className="text-2xl font-bold mb-4 text-center" id="Formulario-de-Contacto">Contáctenos</h2>
       <label htmlFor="user_nombre" className="mb-2 font-semibold">
         Nombre:
       </label>

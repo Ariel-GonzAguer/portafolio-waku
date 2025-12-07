@@ -2,10 +2,10 @@
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "Gato Rojo Lab - Desarrollo web minimalista y práctico",
+    "name": "Gato Rojo Lab — Soluciones web centradas en la Persona Usuaria.",
     "url": "https://gatorojolab.com",
     "image": "https://gatorojolab.com/assets/imgs/cat-favicon.png",
-    "description": "Empresa de desarrollo web minimalista y práctico.",
+    "description": "Empresa de Soluciones web centradas en la Persona Usuaria.",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Desamparados",

@@ -1,8 +1,9 @@
+'use client';
+
 /**
  * TransitionLink - Componente que envuelve el Link de Waku con View Transitions API
  * Proporciona transiciones suaves de 600ms tipo fade entre páginas
  */
-'use client';
 
 import { Link } from 'waku';
 import type { ComponentProps } from 'react';

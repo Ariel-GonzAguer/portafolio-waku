@@ -4,13 +4,12 @@ Un componente React reutilizable que muestra una marquesina animada de tecnolog�
 
 ## Características
 
-- ✨ Animación continua de tecnologías
-- 🎨 Estilos personalizables por tecnología
-- 📱 Diseño responsive
-- 🎯 Hover effects
-- ⚡ Optimizado para rendimiento
-- 🔧 Altamente configurable
-
+- Animación continua de tecnologías
+- Estilos personalizables por tecnología
+- Diseño responsive
+- Hover effects
+- Optimizado para rendimiento
+- Altamente configurable
 ## Instalación
 
 1. Copia los archivos `MarqueeTecnologias.tsx` y `MarqueeTecnologias.css` a tu proyecto

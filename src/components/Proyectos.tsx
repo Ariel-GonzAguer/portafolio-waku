@@ -9,8 +9,8 @@ export default function Proyectos() {
   const isMobile = useIsMobile();
 
   return (
-    <section className="my-20 aos-container" title="proyectos">
-      <h2 className="text-center text-3xl" data-aos="zoom-in">
+    <section className="my-20 aos-container" aria-labelledby="Sección-de-Proyectos">
+      <h2 id="Sección-de-Proyectos" className="text-center text-3xl" data-aos="zoom-in">
         Algunos de los proyectos realizados este año
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-8">
@@ -24,7 +24,6 @@ export default function Proyectos() {
             <img
               src={Array.isArray(proyecto.img) ? proyecto.img[0] : proyecto.img}
               alt={`screenshot que muestra una pantalla de ${proyecto.nombre}`}
-              title={proyecto.nombre}
               className="w-full h-90 object-contain"
               loading="lazy"
             />
@@ -35,7 +34,7 @@ export default function Proyectos() {
               href={proyecto.enlace}
               target="_blank"
               rel="noopener noreferrer"
-              title={proyecto.nombre}
+              aria-label={`Ver el proyecto ${proyecto.nombre}`}
               className="bg-doradoSK text-black px-4 py-2 rounded hover:bg-gatorojo transition inline-block focus:ring-6 focus:ring-gatorojo"
             >
               Ver Proyecto
