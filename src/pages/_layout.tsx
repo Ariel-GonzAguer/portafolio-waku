@@ -17,7 +17,7 @@ export default async function HomeLayout({ children }: HomeLayoutProps) {
       {/* Metadata global para SEO y social sharing */}
       <html lang="es" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel="icon" href="/imagenes/soloGato.png" title="favicon Gato Rojo Lab" />
+      <link rel="icon" href="/imagenes/soloGato.webp" title="favicon Gato Rojo Lab" />
       <meta
         name="description"
         content="GatoRojoLab combina investigación de las Personas Usuarias, diseño UX centrado en sus clientes y desarrollo JAMstack (React + TypeScript) para entregar sitios accesibles, rápidos y orientados a la conversión. Servicios: investigación UX, prototipado, desarrollo frontend accesible y optimización de rendimiento."

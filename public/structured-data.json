@@ -4,7 +4,7 @@
     "@type": "LocalBusiness",
     "name": "Gato Rojo Lab — Soluciones web centradas en la Persona Usuaria.",
     "url": "https://gatorojolab.com",
-    "image": "https://gatorojolab.com/assets/imgs/cat-favicon.png",
+    "image": "https://gatorojolab.com/imagenes/soloGato.webp",
     "description": "Empresa de Soluciones web centradas en la Persona Usuaria.",
     "address": {
       "@type": "PostalAddress",

@@ -89,6 +89,7 @@ export default function MarqueeTecnologias({
                 src={tech.icon}
                 alt={`${tech.name} logo`}
                 style={getImageStyles(tech.name)}
+                loading='lazy'
               />
               <span>{tech.name}</span>
             </div>
